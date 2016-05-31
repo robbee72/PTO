@@ -17,7 +17,7 @@ source 'https://rubygems.org'
    gem 'rspec-rails', '~> 3.0'
  end
 
-
+ gem 'icalendar', '~> 2.3'
  # Use SCSS for stylesheets
  gem 'sass-rails', '~> 5.0'
  # Use Uglifier as compressor for JavaScript assets
@@ -30,4 +30,8 @@ source 'https://rubygems.org'
  gem 'turbolinks'
  gem 'bootstrap-sass'
  gem 'bcrypt-ruby', '~> 3.1', '>= 3.1.5'
- gem 'icalendar'
+
+ gem 'tzinfo'
+ gem 'timecop'
+ gem 'activesupport'
+ gem 'simplecov'
