@@ -2,11 +2,11 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
   end
-  
+
   def create
     @event = Event.new(event_params)
     if @event.save
-      redirect_to calendar_path
+      redirect_to calendar_show_path
     else
       render :new
     end
