@@ -1,3 +1,3 @@
 class Event < ActiveRecord::Base
-  belong_to :calendar
+  has_many :calendars
 end

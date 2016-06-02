@@ -12,6 +12,13 @@ class EventsController < ApplicationController
     end
   end
 
+  def index
+    @event = Event.new
+  end
+
+  def show
+  end
+
   private
 
   def event_params

@@ -1,16 +1,16 @@
-
+class Calendar < ActiveRecord::Base
 require "active_support/core_ext/date"
 require "active_support/core_ext/time"
 require "active_support/core_ext/array"
 
+  has_many :events
 
-class Calendar
    def intialize(date=Date.today)
      @date = date
    end
 
    def to_a
-     CalendarWeeks.new(@date).to_a.map do |week|
+  CalendarWeeks.new(@date).to_a.map do |week|
         week.map do |date|
         [date. DayStyles.new(date).to_s]
       end

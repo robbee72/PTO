@@ -4,7 +4,7 @@ class EmployeesController < ApplicationController
   end
 
   def create
-     @employee = employee.new
+     @employee = Employee.new
      @employee.name = params[:employee][:name]
      @employee.email = params[:employee][:email]
      @employee.password = params[:employee][:password]
