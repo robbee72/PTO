@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20160530231028) do
 
   create_table "employees", force: :cascade do |t|
     t.string   "name"
+    t.string   "employee_number"
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at",      null: false
