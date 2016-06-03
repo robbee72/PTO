@@ -4,8 +4,9 @@ class EmployeesController < ApplicationController
   end
 
   def create
-     @employee = employee.new
+     @employee = Employee.new
      @employee.name = params[:employee][:name]
+     @employee.employee_number = params[:employee][:employee_number]
      @employee.email = params[:employee][:email]
      @employee.password = params[:employee][:password]
      @employee.password_confirmation = params[:employee][:password_confirmation]
@@ -18,4 +19,5 @@ class EmployeesController < ApplicationController
        render :new
      end
    end
+
 end

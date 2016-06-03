@@ -7,10 +7,18 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      redirect_to calendar_path
+      #render :new
+      redirect_to calendar_index_path
     else
       render :new
     end
+  end
+
+  def index
+    @event = Event.new
+  end
+
+  def show
   end
 
   private

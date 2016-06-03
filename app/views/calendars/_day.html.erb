@@ -1,4 +1,6 @@
-<div data-date="<%= day[0].strftime("%d") %>"
-  data-date= "<%= day[0] %>" class= "day <%= day[1] %> ">
-  <%= render partial: 'events/event' , collection: Event.for_date(day[0]) %>
+<section class="th">
+<h2> No Dates</h2>
+<div dataDate="<%= day[0].strftime("%d") %>" class= "day <%= day[1] %> ">
+ <%= render partial: 'events/event' , collection: @event.for_date(day[0]) %>
   </div>
+</section>
