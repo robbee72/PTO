@@ -7,44 +7,45 @@ class Calendar
     @date = date
   end
 
-  def to_a
-    CalendarWeeks.new(@date).to_a.map do |week|
-      week.map do |date|
-        date#. CalendarStyles.new(date).to_s
+    def to_a
+        CalendarWeeks.new(@date).to_a.map do |week|
+          week.map do |date|
+            [date, CalendarStyles.new(date).to_s]
+         end
       end
     end
-  end
 end
 
-#   class CalendarStyles
-#     def initialize(date)
-#       @date = date
-#     end
-#
-#     def to_s
-#       [past, today, future, other_month].compact.join(" ")
-#     end
-# end
-#   private
-#
-#     def past
-#       "past" if @date < Date.today
-#     end
-#
-#     def today
-#       "today" if @date == Date.today
-#     end
-#
-#     def future
-#       "future" if @date > Date.today
-#     end
-#
-#     def other_month
-#          "other_month" if @date.month != Date.today.month
-#     end
+  class CalendarStyles
+    def initialize(date)
+      @date = date
+    end
+
+    def to_s
+      [past, today, future, other_month].compact.join(" ")
+    end
+end
+  private
+
+    def past
+      "past" if @date < Date.today
+    end
+
+    def today
+      "today" if @date == Date.today
+    end
+
+    def future
+      "future" if @date > Date.today
+    end
+
+    def other_month
+         "other_month" if @date.month != Date.today.month
+    end
 
 
   class CalendarWeeks
+
     def initialize(date=Date.today)
       @date = date
     end
