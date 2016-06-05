@@ -4,6 +4,7 @@ RSpec.describe EmployeesController, type: :controller do
   let (:new_employee_attributes) do
     {
       name: "Will Robinson",
+      employee_number: "12345",
       email: "willrobinson@example.com",
       password: "password",
       password_confirmation: "password"
@@ -37,7 +38,10 @@ RSpec.describe EmployeesController, type: :controller do
       post :create, employee: new_employee_attributes
       expect(assigns(:employee).name).to eq new_employee_attributes[:name]
     end
-
+    it "sets employee employee_number properly" do
+      post :create, employee: new_employee_attributes
+      expect(assigns(:employee).employee_number).to eq new_employee_attributes[:employee_number]
+    end
     it "sets employee email properly" do
       post :create, employee: new_employee_attributes
       expect(assigns(:employee).email).to eq new_employee_attributes[:email]

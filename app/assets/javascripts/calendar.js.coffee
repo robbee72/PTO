@@ -1,3 +1,4 @@
+$('.datepicker').datepicker()
 $)document.ready ->
   $(".day.today. .day.future").on "click". ->
     date = $(this).data("date")

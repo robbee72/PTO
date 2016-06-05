@@ -1,6 +1,0 @@
-<h1> Requested event </h1>
-<%= form_for Event.new do |f| %>
-  <%= f.hidden_field :occurs_on, value:params[:date] %>
-  <%= f.text_field :name %>
-  <%= f.submit %>
-<%end%>

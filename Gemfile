@@ -27,7 +27,7 @@ source 'https://rubygems.org'
  gem 'bootstrap-sass'
  gem 'sprockets'
  gem 'bcrypt-ruby', '~> 3.1', '>= 3.1.5'
-
+ gem 'bootstrap-datepicker-rails'
  gem 'tzinfo'
  gem 'timecop'
  gem 'activesupport'

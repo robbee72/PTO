@@ -1,6 +1,6 @@
-<h1> Requested event </h1>
+<h1> Request for Paid Time Off </h1>
 <%= form_for Event.new do |f| %>
   <%= f.hidden_field :occurs_on, value:params[:date] %>
   <%= f.text_field :name %>
-  <%= f.submit %>
+  <%= f.submit "Click Here to Submit" %>
 <%end%>

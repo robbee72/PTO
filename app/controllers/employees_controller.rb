@@ -13,11 +13,16 @@ class EmployeesController < ApplicationController
 
      if @employee.save
        flash[:notice] = "Welcome to RTI inc. #{@employee.name}!"
+       create_session(@employee)
        redirect_to root_path
      else
        flash.now[:alert] = "There was an error creating your account. Please try again."
        render :new
      end
    end
+    def classification
+      classification = ['Hourly non-exempt 4 day week','Hourly non-exempt 5 day week','Management']
+
+    end
 
 end

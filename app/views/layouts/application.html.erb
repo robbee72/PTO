@@ -14,10 +14,15 @@
       <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "About", about_path %></li>
       <li><%= link_to "Calendar", calendars_path %></li>
-      <li><%= link_to "Events", events_path %></li>
+      <li><%= link_to "Requests", events_path %></li>
 
       <div class="pull-right employee-info">
-       <%= link_to "Sign Up", new_employee_path %>
+        <% if current_employee %>
+            <%= current_employee.name %> - <%= link_to "Sign Out", session_path(current_employee), method: :delete %>
+          <% else %>
+            <%= link_to "Sign In", new_session_path %> or
+            <%= link_to "Sign Up", new_employee_path %>
+          <% end %>
      </div>
    </ul>
      <% if flash[:notice] %>
@@ -38,7 +43,7 @@
      <% end %>
 
     <%= yield %>
-    
+
   </div>
 </body>
 </html>

@@ -11,3 +11,5 @@ class Employee < ActiveRecord::Base
             length: { minimum: 3, maximum: 254 }
   has_secure_password
 end
+
+  classification = ['Hourly non-exempt 4 day week','Hourly non-exempt 5 day week','Management']

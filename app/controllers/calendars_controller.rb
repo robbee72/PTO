@@ -9,11 +9,14 @@ class CalendarsController < ApplicationController
   end
 
   def create
-    @calendars = Calendars.new
+    @calendars = Calendars.find(params[:id])
   end
   def index
+
   end
   def show
+
   end
+
 
 end
