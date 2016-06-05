@@ -1,5 +1,7 @@
 class Classification < ActiveRecord::Base
   def index
-  end 
+  end
+  def new
+  end
 
 end

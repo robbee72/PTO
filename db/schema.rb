@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605011557) do
+ActiveRecord::Schema.define(version: 20160605161900) do
 
   create_table "classifications", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160605011557) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "status_type"
   end
 
   create_table "events", force: :cascade do |t|

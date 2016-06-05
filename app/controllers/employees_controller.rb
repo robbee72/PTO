@@ -20,9 +20,9 @@ class EmployeesController < ApplicationController
        render :new
      end
    end
-    def classification
-      classification = ['Hourly non-exempt 4 day week','Hourly non-exempt 5 day week','Management']
-
-    end
+     def classification
+     @classification = classification
+      
+     end
 
 end
