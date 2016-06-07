@@ -3,47 +3,48 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /* Calendar 100% height */
 
-#calendars {
-  position: relative;
-  height: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: stretch;
-}
-.th {
-  flex: 40px 0 0;
-}
-.week{
-  flex: 40px 1 0;
-  border-bottom: 1px solid #ccc;
-}
-/* Calendar rows */
-.th .week {display: flex; }
-.th>span {
-  border-bottom: 4px solid rgba(255,0,0,3);
-  padding: 0 1px 2px 0;
-  text-align: right;
-}
-.week>div {
-  border-top: 1px solid #eee;
-  padding: 20px 2px 2px;
-  min-height: 50px;
-  position: relative;
-}
-.th>span .week>div {
-  width: 100%;
-  margin-right: 5px;
-  color: #333;
-}
-/* Dates */
-.week>div::after {
-  content: attr(data-date);
-  display: block;
-  position: absolute;
-  top: 0; right: 2px;
-  color: blue;
-}
+  #calendars {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+  }
+  .th {
+    flex: 40px 0 0;
+  }
+  .week{
+    flex: 40px 1 0;
+    border-bottom: 1px solid #ccc;
+  }
+  /* Calendar rows */
+  .th .week {display: flex; }
+  .th>span {
+    align-content: center; 
+    border-bottom: 1px solid rgba(255,0,0,3);
+    padding: 0 1px 2px 0;
+    text-align: left;
+  }
+  .week>div {
+    border-top: 1px solid #eee;
+    padding: 20px 2px 2px;
+    min-height: 50px;
+    position: relative;
+  }
+  .th>span .week>div {
+    width: 100%;
+    margin-right: 5px;
+    color: #333;
+  }
+  /* Dates */
+  .week>div::after {
+    content: attr(data-date);
+    display: block;
+    position: absolute;
+    top: 0; right: 2px;
+    color: blue;
+  }
 
-/*Weekends*/
-.th>span:first-child, .th>span:last-child, .week>div:first-child, .week>div:last-child {background-color: #999}
-.th>span:last-child, .week>div:last-child {margin-right: 0}
+  /*Weekends*/
+  .th>span:first-child, .th>span:last-child, .week>div:first-child, .week>div:last-child {background-color: #999}
+  .th>span:last-child, .week>div:last-child {margin-right: 0}

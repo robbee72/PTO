@@ -1,5 +1,4 @@
-$('.datepicker').datepicker()
-$)document.ready ->
+$(document).ready ->
   $(".day.today, .day.future").on "click", ->
-    date = $(this).data("date")
-    window.location.href='/events/new?date=#{date}'
+    date = $(this).date("date")
+    window.location.href="/events/new?=#{date}"
