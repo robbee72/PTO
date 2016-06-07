@@ -3,64 +3,47 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /* Calendar 100% height */
 
-
- #calendar {
-   position: inherit;
-   width: 90%;
-   height: 100%;
-   display: flex;
-   flex-flow: column nowrap;
-   align-items: stretch;
- }
-table {
-  position: inherit;
-  width: 90%;
+#calendars {
+  position: relative;
   height: 100%;
-  display: inline-grid;
+  display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
 }
- .th,  {
-   flex: 40px 0 0;
- }
- .week{
-   flex: 40px 1 0;
-   border-bottom: 2px solid #ccc;
- }
+.th {
+  flex: 40px 0 0;
+}
+.week{
+  flex: 40px 1 0;
+  border-bottom: 1px solid #ccc;
+}
+/* Calendar rows */
+.th .week {display: flex; }
+.th>span {
+  border-bottom: 4px solid rgba(255,0,0,3);
+  padding: 0 1px 2px 0;
+  text-align: right;
+}
+.week>div {
+  border-top: 1px solid #eee;
+  padding: 20px 2px 2px;
+  min-height: 50px;
+  position: relative;
+}
+.th>span .week>div {
+  width: 100%;
+  margin-right: 5px;
+  color: #333;
+}
+/* Dates */
+.week>div::after {
+  content: attr(data-date);
+  display: block;
+  position: absolute;
+  top: 0; right: 2px;
+  color: blue;
+}
 
- /* Calendar rows */
- .th, .week { display: flex;
- }
- .tr>span {
-   border-bottom: 4px solid rgba(255,0,0,3);
-   padding: 0 2px 3px 0;
-   text-align: right;
- }
-
- .week>div {
-   border-top: 1px solid #eee;
-   padding: 20px 2px 2px;
-   min-height: 50px;
-   position: relative;
- }
-
- .th>span, .week>div {
-   width: 100%;
-   margin-right: 5px;
-   color: black;
- }
-
- /* Dates , content: attr(data-date)*/
- .week div {
-
-   display: inline-block;
-   position: absolute;
-   top: 0; right: 2px;
-   border: 1px solid black;
-   color: blue;
- }
-
- /*Weekends*/
- .th>span:first-child, .th>span:last-child, week>div:first-child,
- .week>div:last-child {background-color: #999}
- .th>span:last-child, .week>div:last-child {margin-right: 0}
+/*Weekends*/
+.th>span:first-child, .th>span:last-child, .week>div:first-child, .week>div:last-child {background-color: #999}
+.th>span:last-child, .week>div:last-child {margin-right: 0}
