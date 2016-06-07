@@ -1,5 +1,9 @@
 <h3> Calendar </h3>
 <main id="calendar">
-  <%= render partial: 'headers' %>
-  <%= render partial: 'week', collection: @calendar %>
+  <table>
+    <%= render partial: 'headers' %>
+    <% @calendars.each do |week| %>
+      <%= render partial: 'week', locals: {week: week} %>
+    <% end %>
+  </table>
 </main>

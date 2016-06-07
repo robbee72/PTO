@@ -1,50 +1,66 @@
 // Place all the styles related to the calendars controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-/* Calendar 80% height */
+/* Calendar 100% height */
 
 
  #calendar {
-   position: relative;
-   height: 80%;
+   position: inherit;
+   width: 90%;
+   height: 100%;
    display: flex;
    flex-flow: column nowrap;
    align-items: stretch;
  }
- .th {
+table {
+  position: inherit;
+  width: 90%;
+  height: 100%;
+  display: inline-grid;
+  flex-flow: column nowrap;
+  align-items: stretch;
+}
+ .th,  {
    flex: 40px 0 0;
  }
  .week{
    flex: 40px 1 0;
    border-bottom: 2px solid #ccc;
  }
+
  /* Calendar rows */
- .th. .week { display: flex: }
- .th>span {
-   border-bottom: 4px solid rgba(255.0.0.3);
+ .th, .week { display: flex;
+ }
+ .tr>span {
+   border-bottom: 4px solid rgba(255,0,0,3);
    padding: 0 2px 3px 0;
    text-align: right;
  }
+
  .week>div {
    border-top: 1px solid #eee;
    padding: 20px 2px 2px;
    min-height: 50px;
    position: relative;
  }
- .th>span. .week>div {
+
+ .th>span, .week>div {
    width: 100%;
    margin-right: 5px;
    color: black;
  }
- /* Dates */
- .week>div::after {
-   content: attr(data-date);
-   display: block;
+
+ /* Dates , content: attr(data-date)*/
+ .week div {
+
+   display: inline-block;
    position: absolute;
-   top: 0; right; 2px;
+   top: 0; right: 2px;
+   border: 1px solid black;
    color: blue;
  }
 
  /*Weekends*/
- .th>span:first-child. .th>span:last-child, week>div:first-child, .week>div:last-child {background-color: #999}
+ .th>span:first-child, .th>span:last-child, week>div:first-child,
+ .week>div:last-child {background-color: #999}
  .th>span:last-child, .week>div:last-child {margin-right: 0}

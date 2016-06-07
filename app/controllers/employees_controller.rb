@@ -22,7 +22,7 @@ class EmployeesController < ApplicationController
    end
      def classification
      @classification = classification
-      
+
      end
 
 end
