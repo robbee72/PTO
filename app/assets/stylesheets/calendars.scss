@@ -1,29 +1,37 @@
 // Place all the styles related to the calendars controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-/* Calendar 80% height */
+/* Calendar 100% height */
 
 
  #calendar {
-   position: relative;
+   position: inherit;
+   width: 90%;
    height: 100%;
    display: flex;
    flex-flow: column nowrap;
    align-items: stretch;
  }
-
+table {
+  position: inherit;
+  width: 90%;
+  height: 100%;
+  display: inline-grid;
+  flex-flow: column nowrap;
+  align-items: stretch;
+}
  .th,  {
    flex: 40px 0 0;
  }
-
  .week{
    flex: 40px 1 0;
    border-bottom: 2px solid #ccc;
  }
 
  /* Calendar rows */
- .th, .week { display: flex; }
- .th>span {
+ .th, .week { display: flex;
+ }
+ .tr>span {
    border-bottom: 4px solid rgba(255,0,0,3);
    padding: 0 2px 3px 0;
    text-align: right;
@@ -44,10 +52,10 @@
 
  /* Dates , content: attr(data-date)*/
  .week div {
+
    display: inline-block;
-   width: 100px;
-  //  position: absolute;
-  //  top: 0; right; 2px;
+   position: absolute;
+   top: 0; right: 2px;
    border: 1px solid black;
    color: blue;
  }
