@@ -6,4 +6,7 @@ class CalendarsController < ApplicationController
   def index
     @calendars = Calendar.new.to_a
   end
+
+  def show
+  end
 end

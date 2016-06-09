@@ -21,9 +21,12 @@ class EventsController < ApplicationController
   def show
   end
 
+
+
   private
 
   def event_params
     params.require(:event).permit(:name, :ocurrs_on)
   end
+
 end
