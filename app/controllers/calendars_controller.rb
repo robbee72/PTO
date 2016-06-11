@@ -3,6 +3,10 @@ class CalendarsController < ApplicationController
 
   end
 
+  def create
+    @calendars = Calendar.new.to_a
+  end
+
   def index
     @calendars = Calendar.new.to_a
   end

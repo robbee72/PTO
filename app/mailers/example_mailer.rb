@@ -1,5 +1,4 @@
-class ExampleMailer < ApplicationMailer
-  class ExampleMailer < ActionMailer::Base
+class ExampleMailer < ActionMailer::Base
     default from: "from@example.com"
 
     def sample_email(user)
@@ -11,5 +10,5 @@ class ExampleMailer < ApplicationMailer
                         :subject => 'Sample Mail using Heroku API',
                         :text    => 'This mail is sent using Heroku API via Heroku-ruby'}
       mg_client.send_message ENV['domain'], message_params
-    end  
+    end
 end

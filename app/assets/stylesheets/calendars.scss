@@ -10,9 +10,17 @@
     flex-flow: column nowrap;
     align-items: stretch;
   }
+
+  .table {
+    border: 1px;
+    box-sizing: border-box;
+    display: inline-table;
+    padding: inherit;
+  }
   .th {
     flex: 40px 0 0;
   }
+
   .week{
     flex: 40px 1 0;
     border-bottom: 1px solid #ccc;

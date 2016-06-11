@@ -12,17 +12,17 @@
     $( "#from" ).datepicker({
       defaultDate: "+1w",
       changeMonth: true,
-      numberOfMonths: 3,
-      onClose: function( selectedDate ) {
-        $( "#to" ).datepicker( "option", "minDate", selectedDate );
+      numberOfMonths: 2,
+      onClose: function( selectedDate1 ) {
+        $( "#to" ).datepicker( "option", "minDate", selectedDate1 );
       }
     });
     $( "#to" ).datepicker({
       defaultDate: "+1w",
       changeMonth: true,
-      numberOfMonths: 3,
-      onClose: function( selectedDate ) {
-        $( "#from" ).datepicker( "option", "maxDate", selectedDate );
+      numberOfMonths: 2,
+      onClose: function( selectedDate2 ) {
+        $( "#from" ).datepicker( "option", "maxDate", selectedDate2 );
       }
     });
   });
@@ -64,6 +64,7 @@
         $( ".ui-selected", this ).each(function() {
           var index = $( "#selectable li" ).index( this );
           result.append( " #" + ( index + 1 ) );
+
         });
       }
     });
@@ -73,7 +74,7 @@
 <body>
 
 <p id="feedback">
-<span>Select your schedule days off:</span> <span id="select-result"></span>
+<span>Select your schedule days off:</span> <span id="select-result">none</span>
 </p>
 
 <ol id="selectable">
@@ -86,6 +87,9 @@
   <li class="ui-widget-content">Saturday</li>
 </ol>
 
+<li>HOLD DOWN CONTROL KEY TO SELECT MULTI DAYS</li>
 
+<div>
+</div>
 </body>
 </html>

@@ -22,8 +22,7 @@
          <%= f.text_field :employee_number, autofocus: true, class: 'form-control', placeholder: "Enter employee_number" %>
        <% end %>
 
-       <!-- <%= render partial: 'classification', :locals => { :f => @classification } %> -->
-
+    
        <%= form_group_tag(@employee.errors[:email]) do %>
          <%= f.label :email %>
          <%= f.email_field :email, class: 'form-control', placeholder: "Enter email" %>
