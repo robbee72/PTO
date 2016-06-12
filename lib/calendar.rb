@@ -56,6 +56,13 @@ end
     end
   end
 
+  def next_month
+    @next_month = Time.now.months_since(1).to_date
+  end
+
+  def previous_month
+    @previous_month = Time.now.months_since(-1).to_date
+  end
 
   private
 
@@ -65,4 +72,12 @@ end
 
   def last_calendar_day
     @date.end_of_month.end_of_week(:sunday)
+  end
+
+  def starting_date
+    @starting_date = Time.now.months_since(1).to_date
+  end
+
+  def previous_month
+    @previous_month = Time.now.months_since(-1).to_date
   end

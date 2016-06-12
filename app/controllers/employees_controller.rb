@@ -20,9 +20,11 @@ class EmployeesController < ApplicationController
        render :new
      end
    end
-     def classification
-     @classification = classification
 
-     end
+   def index
+     @employee = Employee.all
+   end
+   def edit
+   end
 
 end

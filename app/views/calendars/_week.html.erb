@@ -1,4 +1,9 @@
-<div class= "week">
-    <%= render partial: 'day' , collection: week %>
+<tr>
+   <% week.each do |day| %>
+   <%= render partial: 'day', locals: {day: day} %>
+   <% end %>
+ </tr>
 
-</div>
+ <!-- <div class="week">
+    <%= render partial: 'day' , collection: week %>
+  </div> -->

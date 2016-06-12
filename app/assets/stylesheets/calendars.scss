@@ -3,22 +3,29 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /* Calendar 100% height */
 
-  #calendars {
+ #calendars {
+    width: 60px;
     position: relative;
     height: 100%;
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column nowrap;;
     align-items: stretch;
   }
+
+
   .th {
     flex: 40px 0 0;
   }
+
   .week{
     flex: 40px 1 0;
     border-bottom: 1px solid #ccc;
   }
   /* Calendar rows */
-  .th .week {display: flex; }
+  .th .week {
+    display: flex;
+  }
+
   .th>span {
     align-content: center;
     border-bottom: 1px solid rgba(255,0,0,3);
