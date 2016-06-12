@@ -1,15 +1,14 @@
 require 'random_data'
-
-5.times do
-# #1
-  Employees.create!(
-# #2
-    name:  RandomData.random_sentence,
-    email:   RandomData.random_paragraph
-    employee_number: RandomData.random_data
-  )
-end
-employees = Employee.all
+#
+# 5.times do
+# # #1
+#   Employees.create!(
+# # #2
+#     name:  RandomData.random_sentence,
+#     email:   RandomData.random_paragraph
+#   )
+# end
+# employees = Employee.all
 
  # 5.times do
  # # #1

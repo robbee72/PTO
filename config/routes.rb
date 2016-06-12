@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :employees
+  resources :calendars
 
-  resources :calendars 
   resources :events, :path => 'events'
 
   resources :employees, only: [:new, :create]

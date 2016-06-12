@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-
+before_filter :fix_params, :only => [:create, :update]
   def new
     @event = Event.new
   end
@@ -21,9 +21,11 @@ end
   end
 
   def show
+
   end
 
   
+
   private
 
   def event_params

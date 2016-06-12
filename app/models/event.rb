@@ -9,20 +9,20 @@ require 'date' # Makes Ruby's date library available to our code
       @day, @schedule_day_off = day, schedule_day_off
     end
 
-    def first_date
-      first_date = from
+    def Calendar.new(starting_date).to_a
+
     end
 
-    def last_date
-      last_date = to
+    def selectable2
+
     end
 
     def schedule_day_off
 
     end
-    def @hours
-      @hours = 8*(last_date - first_date + schedule_day_off)
-    end
+    # def @hours
+    #   @hours = 8*(last_date - first_date + schedule_day_off)
+    # end
 
 
 end

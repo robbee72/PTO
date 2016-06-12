@@ -2,10 +2,13 @@
   <%= render partial: 'next_previous_month' %>
 </h5>
 <main id="calendars">
-  <table >
+<h3>
+
+  <table>
   <%= render partial: 'headers' %>
      <% @calendars.each do |week| %>
        <%= render partial: 'week', locals: {week: week} %>
      <% end %>
-   </table>
+  </table>
+</h3>
 </main>
