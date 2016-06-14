@@ -10,6 +10,7 @@
   <script>
   $(function() {
     $( "#from" ).datepicker({
+
       defaultDate: "+1w",
       changeMonth: true,
       numberOfMonths: 2,
@@ -47,7 +48,7 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
+  <link rel="stylesheet" href="/resources/style.css">
 
   <style>
   #feedback { font-size: 18px; }
@@ -91,6 +92,9 @@
 
 <%= link_to 'Click here to see Calendar', calendars_path, class: 'btn btn-sm button-bg-hover-color' %>
 <div>
+<%= link_to 'SUBMIT ', calendars_path, class: 'btn btn-success button-hover-color' %>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 </div>
 </body>
 </html>

@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :employees
+  devise_for :users
+  resources :users
   resources :calendars
 
   resources :events, :path => 'events'
 
-  resources :employees, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
   get 'about' => 'welcome#about'
   root :to =>'welcome#index'

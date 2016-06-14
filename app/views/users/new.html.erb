@@ -2,36 +2,34 @@
 
  <div class="row">
    <div class="col-md-8">
-     <%= form_for @employee do |f| %>
-       <% if @employee.errors.any? %>
+     <%= form_for @user do |f| %>
+       <% if @user.errors.any? %>
          <div class="alert alert-danger">
-           <h4><%= pluralize(@employee.errors.count, "error") %>.</h4>
+           <h4><%= pluralize(@user.errors.count, "error") %>.</h4>
            <ul>
-             <% @employee.errors.full_messages.each do |msg| %>
+             <% @user.errors.full_messages.each do |msg| %>
                <li><%= msg %></li>
              <% end %>
            </ul>
          </div>
        <% end %>
-       <%= form_group_tag(@employee.errors[:name]) do %>
+       <%= form_group_tag(@user.errors[:name]) do %>
          <%= f.label :name %>
          <%= f.text_field :name, autofocus: true, class: 'form-control', placeholder: "Enter name" %>
        <% end %>
-       <%= form_group_tag(@employee.errors[:employee_number]) do %>
-         <%= f.label :employee_number %>
-         <%= f.text_field :employee_number, autofocus: true, class: 'form-control', placeholder: "Enter employee_number" %>
+        <%= form_group_tag(@user.errors[:user_number]) do %>
+         <%= f.label :user_number %>
+         <%= f.text_field :user_number, autofocus: true, class: 'form-control', placeholder: "Enter user_number" %>
        <% end %>
-
-    
-       <%= form_group_tag(@employee.errors[:email]) do %>
+       <%= form_group_tag(@user.errors[:email]) do %>
          <%= f.label :email %>
          <%= f.email_field :email, class: 'form-control', placeholder: "Enter email" %>
        <% end %>
-       <%= form_group_tag(@employee.errors[:password]) do %>
+       <%= form_group_tag(@user.errors[:password]) do %>
          <%= f.label :password %>
          <%= f.password_field :password, class: 'form-control', placeholder: "Enter password" %>
        <% end %>
-       <%= form_group_tag(@employee.errors[:password_confirmation]) do %>
+       <%= form_group_tag(@user.errors[:password_confirmation]) do %>
          <%= f.label :password_confirmation %>
          <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Enter password confirmation" %>
        <% end %>

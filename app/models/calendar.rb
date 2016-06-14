@@ -9,11 +9,11 @@ has_many :events
   def day
   end
 
-  def from
-    @from = Date.today + selectable1
-  end
-
-  def to
-    @to = Date.today + selectable2
-  end
+  # def from
+  #   @from = Date.today + selectable1
+  # end
+  #
+  # def to
+  #   @to = Date.today + selectable2
+  # end
 end

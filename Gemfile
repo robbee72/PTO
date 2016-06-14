@@ -34,3 +34,4 @@ end
  gem 'timecop'
  gem 'activesupport'
  gem 'simplecov'
+ gem 'devise'

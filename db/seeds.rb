@@ -2,13 +2,13 @@ require 'random_data'
 #
 # 5.times do
 # # #1
-#   Employees.create!(
+#   Users.create!(
 # # #2
 #     name:  RandomData.random_sentence,
 #     email:   RandomData.random_paragraph
 #   )
 # end
-# employees = Employee.all
+# users = User.all
 
  # 5.times do
  # # #1
@@ -31,4 +31,4 @@ require 'random_data'
  puts "Seed finished"
  # puts "#{Post.count} posts created"
  # puts "#{Comment.count} comments created"
- puts "#{Employee.count} employee created"
+ puts "#{User.count} user created"

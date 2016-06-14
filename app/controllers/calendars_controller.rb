@@ -12,10 +12,13 @@ class CalendarsController < ApplicationController
   end
 
   def show
-    
+
   end
 
   def update
 
+  end
+  def month_today
+    return month_today
   end
 end

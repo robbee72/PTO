@@ -82,7 +82,7 @@ Rails.application.configure do
     config.action_mailer.smtp_settings = {
       :port           => ENV['HEROKU_SMTP_PORT'],
       :address        => ENV['HEROKU_SMTP_SERVER'],
-      :employee_name      => ENV['HEROKU_SMTP_LOGIN'],
+      :user_name      => ENV['HEROKU_SMTP_LOGIN'],
       :password       => ENV['HEROKU_SMTP_PASSWORD'],
       :domain         => 'yourapp.heroku.com',
       :authentication => :plain,

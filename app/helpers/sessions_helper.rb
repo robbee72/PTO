@@ -1,13 +1,13 @@
 module SessionsHelper
-  def create_session(employee)
-    session[:employee_id] = employee.id
+  def create_session(user)
+    session[:user_id] = user.id
   end
 
-  def destroy_session(employee)
-    session[:employee_id] = nil
+  def destroy_session(user)
+    session[:user_id] = nil
   end
 
-  def current_employee
-    Employee.find_by(id: session[:employee_id])
+  def current_user
+    User.find_by(id: session[:user_id])
   end
 end

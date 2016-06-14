@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe EmployeesController, type: :controller do
-  let (:new_employee_attributes) do
+RSpec.describe UsersController, type: :controller do
+  let (:new_user_attributes) do
     {
       name: "Will Robinson",
-      employee_number: "12345",
+      user_number: "12345",
       email: "willrobinson@example.com",
       password: "password",
       password_confirmation: "password"
@@ -17,9 +17,9 @@ RSpec.describe EmployeesController, type: :controller do
        expect(response).to have_http_status(:success)
      end
 
-     it "instantiates a new employee" do
+     it "instantiates a new user" do
        get :new
-       expect(assigns(:employee)).to_not be_nil
+       expect(assigns(:user)).to_not be_nil
      end
    end
 end
