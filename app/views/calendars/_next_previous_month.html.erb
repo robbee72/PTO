@@ -1,14 +1,5 @@
 <div class="button-bar">
-  <button name="Calendar.new(starting_date).to_a" type="button" onclick="getData()">Click</button>
-
-  <button onclick="myFunction()">Reload page</button>
-
-  <script>
-  function myFunction() {
-      location.reload();
-  }
-  </script>
- <button onclick= "CalendarWeeks.new(past_date).to_a">Previous Month</button>
+  <button onclick= "I18n.t("date.month_names").to_a">Previous Month</button>
   <button onclick="@calendars">Today</button>
-  <button onclick="Calendar.new(starting_date).to_a">Next Month</button>
+  <button onclick="next_month">Next Month</button>
 </div>

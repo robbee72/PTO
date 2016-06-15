@@ -1,0 +1,43 @@
+day.html.erb
+<!-- <td data-date="<%= day[0].strftime("%d") %>"
+  class= "day <%= day[1] %> ">
+  <%= day[0].strftime("%d") %>
+</td> -->
+
+week.html.erb
+<!-- <tr>
+   <% week.each do |day| %>
+   <%= render partial: 'day', locals: {day: day} %>
+   <% end %>
+ </tr>
+
+index.html.erb
+ <!-- <h5>
+   <%= render partial: 'next_previous_month' %>
+ </h5>
+
+ <h3>
+   <table>
+     <main id="calendars">
+       <%= render partial: 'headers' %>
+         <% @calendars.each do |week| %>
+           <%= render partial: 'week', locals: {week: week} %>
+         <% end %>
+      </main>
+   </table>
+ </h3> -->
+
+header
+
+ <!-- <tr>
+   <th>Sunday</th>
+   <th>Monday</th>
+   <th>Tuesday</th>
+   <th>Wednesday</th>
+   <th>Thursday</th>
+   <th>Friday</th>
+   <th>Saturday</th>
+ </tr> -->
+
+day line 3
+ <%= day[0].strftime("%d") %>

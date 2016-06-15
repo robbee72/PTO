@@ -5,9 +5,9 @@ attr_accessor :day, :schedule_day_off
 require 'date' # Makes Ruby's date library available to our code
 
 
-    def initialize (day, schedule_day_off)
-      @day, @schedule_day_off = day, schedule_day_off
-    end
+    # def initialize (day, schedule_day_off)
+    #   @day, @schedule_day_off = day, schedule_day_off
+    # end
 
 
     def from

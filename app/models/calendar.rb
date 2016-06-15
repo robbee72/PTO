@@ -6,8 +6,7 @@ has_many :events
   def week
   end
 
-  def day
-  end
+
 
   # def from
   #   @from = Date.today + selectable1
