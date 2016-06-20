@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resource :calendar
 
-  resources :events, :path => 'events'
+  resources :events
 
   resources :sessions, only: [:new, :create, :destroy]
   get 'about' => 'welcome#about'

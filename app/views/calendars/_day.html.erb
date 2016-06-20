@@ -1,3 +1,4 @@
-<div data-date="<%= day[0].strftime("%d") %>" class= "day <%= day[1] %> ">
-
+<div data-date="<%= day[0].strftime("%d") %>"
+     data-full-date="<%= day[0] %>" class= "day <%= day[1] %> ">
+     <%= render partial: 'events/event', collection: Event(day[0]) %>
 </div>

@@ -17,6 +17,7 @@ class Calendar
   end
 end
 
+
 class CalendarStyles
   def initialize(date)
     @date = date
@@ -57,6 +58,13 @@ class CalendarWeeks
     (first_calendar_day..last_calendar_day).to_a.in_groups_of(7)
   end
 
+    def starting_date
+      starting_date = Time.now.months_since(1).to_date
+    end
+
+    def past_date
+      past_date = Time.now.months_since(-1).to_date
+    end
   private
 
   def first_calendar_day
@@ -67,11 +75,4 @@ class CalendarWeeks
     @date.end_of_month.end_of_week(:sunday)
   end
 
-  def starting_date
-    @starting_date = Time.now.months_since(1).to_date
-  end
-
-  def past_date
-    @past_date = Time.now.months_since(-1).to_date
-  end
 end

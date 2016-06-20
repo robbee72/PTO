@@ -5,16 +5,15 @@ class CalendarsController < ApplicationController
 
   def create
     @calendar = Calendar.new.to_a
+    @calendar_next = Calendar.new(starting_date).to_a
+    @calendar_past = Calendar.new(past_date).to_a
   end
-  #
-  # def index
-  #   @calendars = Calendar.new.to_a
-  # end
 
   def show
-    month = params[:id]
-    @calendar = Calendar.new.to_a
 
+    @calendar = Calendar.new.to_a
+    @calendar_next = Calendar.new(starting_date).to_a
+    @calendar_past = Calendar.new(past_date).to_a
 
 
     if Time.now.month == 12
@@ -27,7 +26,13 @@ class CalendarsController < ApplicationController
   def update
 
   end
-  def month_today
-    return month_today
+
+  def starting_date
+    @starting_date = Time.now.months_since(1).to_date
   end
+
+  def past_date
+    past_date = Time.now.months_since(-1).to_date
+  end
+
 end

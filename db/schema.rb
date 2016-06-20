@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20160612231905) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date     "ocurrs_on"
+    t.date     "occurs_on"
   end
 
   create_table "requests", force: :cascade do |t|

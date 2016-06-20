@@ -1,1 +1,7 @@
-<h1> New Event for PTO </h1>
+<h3> New Event for PTO </h3>
+  <%= form_for @event do |f| %>
+    <%= f.text_field :name %>
+   <%= f.hidden_field :occurs_on, value: params[:date] %>
+    <%= f.submit %>
+  <%- end %>
+  

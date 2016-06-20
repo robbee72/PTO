@@ -1,0 +1,2 @@
+class OccursOnController < ApplicationController
+end

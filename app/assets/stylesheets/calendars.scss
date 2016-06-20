@@ -1,6 +1,4 @@
-  .h3 {
-  align-items: stretch;
-  }
+
  #calendar {
     position: absolute;
     height: 100%;
@@ -25,6 +23,7 @@
   }
   .week>div {
     border-top: 1px solid #eee;
+    border-right: 1px solid #eee;
     padding: 20px 2px 2px;
     min-height: 50px;
     position: relative;
@@ -34,6 +33,7 @@
     margin-right: 5px;
     color: #333;
   }
+
   /* Dates */
   .week>div::after {
     content: attr(data-date);
@@ -44,5 +44,5 @@
   }
 
   /*Weekends*/
-  .th>span:first-child, .th>span:last-child, .week>div:first-child, .week>div:last-child {background-color: #999;}
+ .week>div:first-child, .week>div:last-child {background-color: #6DD5F7;}
   .th>span:last-child, .week>div:last-child {margin-right: 2px;}

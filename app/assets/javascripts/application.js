@@ -17,5 +17,8 @@
 //= require_tree .
 
 $(document).on("page:load ready", function(){
-    $("input.datepicker").datepicker();
+  // var datepickers = $("input.datepicker");
+  // if(datepickers.length > 0) {
+  //   datepickers.datepicker();
+  // }
 });
