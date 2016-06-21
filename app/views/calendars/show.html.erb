@@ -1,7 +1,11 @@
 <h5>
+  <%= render partial: 'month'%>
   <%= render partial: 'next_previous_month' %>
 </h5>
 <main  :id="calendar">
+
     <%= render partial: 'headers' %>
     <%= render partial: 'week', collection: @calendar%>
+
+
 </main>

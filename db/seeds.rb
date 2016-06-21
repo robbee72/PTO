@@ -1,5 +1,5 @@
 require 'random_data'
-#
+
 # 5.times do
 # # #1
 #   Users.create!(

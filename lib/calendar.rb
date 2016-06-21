@@ -6,6 +6,7 @@ require "active_support/core_ext/array"
 class Calendar
   def initialize(date=Date.today)
     @date = date
+
   end
 
   def to_a
@@ -26,6 +27,7 @@ class CalendarStyles
   def to_s
     [past, today, future, other_month].compact.join(" ")
   end
+
 
   private
 

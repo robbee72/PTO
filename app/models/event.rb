@@ -1,5 +1,10 @@
 class Event < ActiveRecord::Base
-   belongs_to :calendars
-   has_many :calendars
-   
+  # attr_accessor  :for_date, :event
+  # scope :for_date, -> { joins(:calendar)}
+  # def initialize(for_date, event)
+  #
+  # end
+  # def for_date
+  #
+  # end
 end

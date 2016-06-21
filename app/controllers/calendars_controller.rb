@@ -3,6 +3,10 @@ class CalendarsController < ApplicationController
 
   end
 
+  def index
+    redirect_to calendar_path(Date.today.strftime('%m-%Y'))
+  end
+
   def create
     @calendar = Calendar.new.to_a
     @calendar_next = Calendar.new(starting_date).to_a
@@ -10,11 +14,17 @@ class CalendarsController < ApplicationController
   end
 
   def show
+    @date = Date.strptime(params[:id],'%m-%Y')
+    @calendar = Calendar.new(@date).to_a
+    @calendar_next = (@date + 1.month).strftime('%m-%Y') #Calendar.new(starting_date).to_a
+    @calendar_past = (@date - 1.month).strftime('%m-%Y') #Calendar.new(past_date).to_a
+    @today = Date.today.strftime('%m-%Y')
 
-    @calendar = Calendar.new.to_a
-    @calendar_next = Calendar.new(starting_date).to_a
-    @calendar_past = Calendar.new(past_date).to_a
+    first_day = @calendar.first.first.first
+    last_day = @calendar.last.last.first
 
+    @events = Event.where('occurs_on >= ? AND occurs_on <= ?', first_day, last_day)
+    #raise @events.inspect
 
     if Time.now.month == 12
       date = Time.now.year.next.to_s + "01"

@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
- 
+
   def new
     @event = Event.new
   end
@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   def create
       @event = Event.new(event_params)
       if @event.save
-        redirect_to '/calendar'
+        redirect_to '/calendars'
       else
         render :new
       end

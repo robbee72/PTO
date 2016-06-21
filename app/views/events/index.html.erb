@@ -39,61 +39,25 @@
 
 </body>
 </html>
-
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>jQuery UI Selectable - Serialize</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/style.css">
-
-  <style>
-  #feedback { font-size: 18px; }
-  #selectable .ui-selecting { background: #FECA40; }
-  #selectable .ui-selected { background: #F39814; color: white; }
-  #selectable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
-  #selectable li { margin: 3px; padding: 2px; font-size: 10px; height: 18px; }
-  </style>
-  <script>
-  $(function() {
-    $( "#selectable" ).selectable({
-      stop: function() {
-        var result = $( "#select-result" ).empty();
-        $( ".ui-selected", this ).each(function() {
-          var index = $( "#selectable li" ).index( this );
-          result.append( " #" + ( index + 1 ) );
-
-        });
-      }
-    });
-  });
-  </script>
-</head>
+Total days = "#to" - "#from"
+<div>
+<!DOCTYPE html>
+<html>
 <body>
 
-<p id="feedback">
-<span>Select your schedule days off:</span> <span id="select-result">none</span>
-</p>
 
-<ol id="selectable">
-  <li class="ui-widget-content">Sunday</li>
-  <li class="ui-widget-content">Monday</li>
-  <li class="ui-widget-content">Tuesday</li>
-  <li class="ui-widget-content">Wednesday</li>
-  <li class="ui-widget-content">Thursday</li>
-  <li class="ui-widget-content">Friday</li>
-  <li class="ui-widget-content">Saturday</li>
-</ol>
+<button onclick="myFunction()">Submit</button>
 
-<li>HOLD DOWN CONTROL KEY TO SELECT MULTI DAYS</li>
+<script>
+function myFunction() {
+    alert("You will receive an email!");
+}
+</script>
 
-<%= link_to 'Click here to see Calendar', calendar_path, class: 'btn btn-sm button-bg-hover-color' %>
-<div>
-<%= link_to 'SUBMIT ', calendar_path, class: 'btn btn-success button-hover-color' %>
- 
+</body>
+</html>
+
+
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 </div>

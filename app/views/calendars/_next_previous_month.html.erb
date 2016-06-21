@@ -1,8 +1,7 @@
 
 <div class="button-bar">
-  <button onclick= "@calendar_past">Previous Month</button>
-  <button onclick="@calendars">Today</button>
-
-<button onclick= "@calendar_next">Next Month</button>
+  <a href="/calendars/<%= @calendar_past %>" class="btn btn-secondary">Previous Month</a>
+  <a href="/calendars/<%= @today %>" class="btn btn-secondary">Today</a>
+  <a href="/calendars/<%= @calendar_next %>" class="btn btn-secondary">Next Month</a>
 
 </div>

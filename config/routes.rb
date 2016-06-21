@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users
-  resource :calendar
+  resources :calendars
 
   resources :events
 
