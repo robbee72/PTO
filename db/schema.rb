@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20160612231905) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
+    t.string   "for_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date     "occurs_on"

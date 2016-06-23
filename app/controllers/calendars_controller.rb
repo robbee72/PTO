@@ -1,9 +1,13 @@
 class CalendarsController < ApplicationController
+
+
+
   def new
 
   end
 
   def index
+
     redirect_to calendar_path(Date.today.strftime('%m-%Y'))
   end
 
@@ -24,7 +28,9 @@ class CalendarsController < ApplicationController
     last_day = @calendar.last.last.first
 
     @events = Event.where('occurs_on >= ? AND occurs_on <= ?', first_day, last_day)
-    #raise @events.inspect
+    @grouped_events = @events.group_by{|e| e.occurs_on.strftime('%Y-%m-%d')}
+    # raise @grouped_events.inspect
+
 
     if Time.now.month == 12
       date = Time.now.year.next.to_s + "01"

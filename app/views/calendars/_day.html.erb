@@ -1,4 +1,8 @@
-<div data-date="<%= day[0].strftime("%d") %>"
-     data-full-date="<%= day[0] %>" class= "day <%= day[1] %> ">
-    
+<div data-date="<%= day[0].strftime("%d") %>" data-full-date="<%= day[0] %>" class= "day <%= day[1] %> ">
+  <% events = @grouped_events[day[0].strftime("%Y-%m-%d")] %>
+  <% if events.present? %>
+    <% events.each do |event| %>
+      <p><%= event.name %></p>
+    <% end %>
+  <% end %>
 </div>
