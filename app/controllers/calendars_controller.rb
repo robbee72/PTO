@@ -1,6 +1,6 @@
 class CalendarsController < ApplicationController
-
-
+  before_action :require_sign_in, except: [:index, :show]
+  before_action :authorize_user, except: [:index, :show]
 
   def new
 
@@ -50,5 +50,11 @@ class CalendarsController < ApplicationController
   def past_date
     past_date = Time.now.months_since(-1).to_date
   end
+
+    private
+    def calendar_params
+      params.require(:calendar).permit(:name, :description, :public)
+    end
+
 
 end

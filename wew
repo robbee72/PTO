@@ -1,0 +1,5 @@
+Date.today.strftime("%B")
+
+ <%= render partial: 'events/event', collection: Event(day[0]) %>
+
+ <%= render partial: 'events/event', collection: Event.for_date(day[0]) %>

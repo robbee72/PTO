@@ -1,6 +1,7 @@
 <h3> New Event for PTO </h3>
   <%= form_for @event do |f| %>
-    Days off <%= f.text_field :name %>
+  <%= f.select :name, [['Scheduled Day Off', 'Scheduled Day Off'],['Requested for PTO', 'Requested for PTO'],['PTO has NOT been approved', 'PTO has NOT been approved'],['PTO approved', 'PTO approved']] %>
    <%= f.hidden_field :occurs_on, value: params[:date] %>
+
     <%= f.submit %>
   <%- end %>
