@@ -2,9 +2,9 @@ class User < ActiveRecord::Base
   #Include default devise modules. Others available are:
   #:confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :trackable, :validatable
+  :recoverable, :rememberable, :trackable, :validatable, :confirmable, stretches: 20
 
-  enum role: [:admin, :standard, :premium]
+  enum role: [:admin, :manager, :employee]
 
   after_create :initialize_user
 
@@ -12,22 +12,22 @@ class User < ActiveRecord::Base
     role == 'admin'
   end
 
-  def standard?
-    role == 'standard'
+  def manager?
+    role == 'manager'
   end
 
-  def premium?
-    role == 'premium'
+  def employee?
+    role == 'employee'
   end
 
   def initialize_user
-    self.update_attributes(role: 'standard')
+    self.update_attributes(role: 'employee')
   end
 
   def upgrade_account
-    self.update_attributes(role: 'premium')
+    self.update_attributes(role: 'manager')
   end
-  
+
   def privatize_calendar?(calendar)
     (self.premium? && calendar.is_owned_by?(self)) || self.admin?
   end
@@ -41,7 +41,7 @@ end
 
 
   def downgrade_account
-    self.update_attributes(role: "standard")
+    self.update_attributes(role: "employee")
     self.make_calendars_public
   end
 end

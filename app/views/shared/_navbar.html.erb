@@ -19,8 +19,8 @@
         <li><%= link_to "About", about_path %></li>
         <li><%= link_to "Calendar", calendars_path %></li>
         <li><%= link_to "Requests", events_path %></li>
-        <% if current_user && !current_user.premium? %>
-          <li><%= link_to "Upgrade", new_charge_path %></li>
+        <% if current_user && !current_user.manager? %>
+
         <% end %>
 
       </ul>
@@ -33,6 +33,6 @@
   </div>
 </ul>
   <% if user_signed_in? %>
-    <ul>Signed in as: <%= current_user.email %></ul>
+    <ul>Signed in as: <%= current_user.try(:email) %></ul>
   <% end %>
 </nav>

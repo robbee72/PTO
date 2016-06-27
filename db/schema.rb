@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160625235106) do
 
   create_table "models", force: :cascade do |t|
     t.string   "name",                   default: "", null: false
+    t.integer  "employee_number",                     null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -64,7 +65,7 @@ ActiveRecord::Schema.define(version: 20160625235106) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "user_number"
+    t.integer  "employee_number"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -85,6 +86,8 @@ ActiveRecord::Schema.define(version: 20160625235106) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["employee_number"], name: "index_users_on_employee_number", unique: true
+  add_index "users", ["name"], name: "index_users_on_name", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
