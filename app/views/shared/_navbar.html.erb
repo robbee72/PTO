@@ -19,9 +19,6 @@
         <li><%= link_to "About", about_path %></li>
         <li><%= link_to "Calendar", calendars_path %></li>
         <li><%= link_to "Requests", events_path %></li>
-        <% if current_user && !current_user.manager? %>
-
-        <% end %>
 
       </ul>
 

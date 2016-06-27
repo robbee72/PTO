@@ -15,6 +15,6 @@ class ApplicationController < ActionController::Base
    protected
 
    def configure_permitted_parameters
-     devise_parameter_sanitizer.permit(:sign_up, except: [:email]) << :name
+     devise_parameter_sanitizer.permit(:sign_up, except: [:employee_number, :email]) << :name
    end
   end

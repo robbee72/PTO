@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   #:confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable, :confirmable, stretches: 20
-
+  has_many :calendars
+  has_many :events 
   enum role: [:admin, :manager, :employee]
 
   after_create :initialize_user
@@ -29,7 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def privatize_calendar?(calendar)
-    (self.premium? && calendar.is_owned_by?(self)) || self.admin?
+    (self.manager && calendar.is_owned_by?(self)) || self.admin?
   end
 
 

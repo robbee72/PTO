@@ -37,3 +37,4 @@ end
  gem 'simplecov'
  gem 'devise'
  gem 'pundit'
+ gem 'omniauth',  '>= 1.0.0'
