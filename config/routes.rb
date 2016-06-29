@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :events
 
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions
   get 'about' => 'welcome#about'
   root :to =>'welcome#index'
 end

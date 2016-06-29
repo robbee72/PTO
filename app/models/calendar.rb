@@ -1,9 +1,11 @@
 class Calendar < ActiveRecord::Base
 has_many :events
 belongs_to :calendars
+  def countdays
+    @countdays = Event.all.count
+  end
 
-
-  def for_date
-    @for_dates = For_date.all 
+  def hours
+    @hours = @countdays * 8
   end
 end
