@@ -32,6 +32,7 @@ class CalendarsController < ApplicationController
     # raise @grouped_events.inspect
     @countdays = Event.all.count
     @hours = @countdays * 8
+
     if Time.now.month == 12
       date = Time.now.year.next.to_s + "01"
     else
