@@ -10,25 +10,27 @@ require 'random_data'
 # end
 # users = User.all
 
- # 5.times do
+ #  5.times do
  # # #1
- #   Post.create!(
- # # #2
+ #    Post.create!(
+ #  # #2
+ #      user: users.sample,
  #     title:  RandomData.random_sentence,
- #     body:   RandomData.random_paragraph
- #   )
- # end
- # posts = Post.all
+ #      body:   RandomData.random_paragraph
+ #    )
+ #  end
+ #  posts = Post.all
  #
- # 10.times do
- #   Comment.create!(
- # # #4
- #     post: posts.sample,
- #     body: RandomData.random_paragraph
- #   )
- # end
+ #  10.times do
+ #    Comment.create!(
+ #  # #4
+ #      post: posts.sample,
+ #      body: RandomData.random_paragraph
+ #    )
+ #  end
+
 
  puts "Seed finished"
- # puts "#{Post.count} posts created"
- # puts "#{Comment.count} comments created"
+ #puts "#{Post.count} posts created"
+ #puts "#{Comment.count} comments created"
  puts "#{User.count} user created"

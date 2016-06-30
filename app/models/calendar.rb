@@ -2,7 +2,7 @@ class Calendar < ActiveRecord::Base
 has_many :events
 belongs_to :calendars
   def countdays
-    @countdays = Event.all.count
+    @countdays = Event.where(:name => "Requested for PTO").count
   end
 
   def hours

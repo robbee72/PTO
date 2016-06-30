@@ -1,7 +1,5 @@
 class CalendarsController < ApplicationController
 
-
-
   def new
 
   end
@@ -30,7 +28,7 @@ class CalendarsController < ApplicationController
     @events = Event.where('occurs_on >= ? AND occurs_on <= ?', first_day, last_day)
     @grouped_events = @events.group_by{|e| e.occurs_on.strftime('%Y-%m-%d')}
     # raise @grouped_events.inspect
-    @countdays = Event.all.count
+    @countdays = Event.where(:name => "Requested for PTO").count
     @hours = @countdays * 8
 
     if Time.now.month == 12
