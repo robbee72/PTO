@@ -4,6 +4,11 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @posts = Post.all
+    # if user_signed_in?
+    #   redirect_to posts_path
+    # else
+    #   redirect_to new_user_session_path
+    # end
   end
 
   # GET /posts/1
@@ -49,7 +54,8 @@ end
 
   # DELETE /posts/1
   def destroy
-    @post.destroy
+    @posts = Post.all
+    @post.delete
     redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
 
