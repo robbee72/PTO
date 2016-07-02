@@ -4,8 +4,8 @@ RSpec.describe "posts/show", type: :view do
   before(:each) do
     @post = assign(:post, Post.create!(
       :title => "Title",
-      :context => "MyText",
-      :num1 => 1
+      :content => "MyText",
+
     ))
   end
 

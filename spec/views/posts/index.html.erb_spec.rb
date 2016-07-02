@@ -5,13 +5,13 @@ RSpec.describe "posts/index", type: :view do
     assign(:posts, [
       Post.create!(
         :title => "Title",
-        :context => "MyText",
-        :num1 => 1
+        :content => "MyText"
+
       ),
       Post.create!(
         :title => "Title",
-        :context => "MyText",
-        :num1 => 1
+        :content => "MyText"
+
       )
     ])
   end

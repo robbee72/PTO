@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20160629180454) do
     t.string   "name"
     t.string   "for_date"
     t.text     "content"
-    t.integer  "num1"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

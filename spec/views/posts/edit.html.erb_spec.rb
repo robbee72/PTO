@@ -4,8 +4,8 @@ RSpec.describe "posts/edit", type: :view do
   before(:each) do
     @post = assign(:post, Post.create!(
       :title => "MyString",
-      :context => "MyText",
-      :num1 => 1
+      :context => "MyText"
+
     ))
   end
 
@@ -16,9 +16,9 @@ RSpec.describe "posts/edit", type: :view do
 
       assert_select "input#post_title[name=?]", "post[title]"
 
-      assert_select "textarea#post_context[name=?]", "post[context]"
+      assert_select "textarea#post_content[name=?]", "post[content]"
 
-      assert_select "input#post_num1[name=?]", "post[num1]"
+
     end
   end
 end

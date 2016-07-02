@@ -5,7 +5,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :name
       t.string :for_date
       t.text :content
-      t.integer :num1
+    
 
       t.timestamps null: false
     end
