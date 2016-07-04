@@ -1,8 +1,28 @@
 require 'random_data'
-puts "Standard user created (employee@example.com/ password)"
-puts "Premium user created (manager@example.com/ password)"
-puts "Admin user created (admin@example.com/ password)"
+
+
+# Create an admin user
+ admin = User.create!(
+   name:     'Admin User',
+   email:    'admin@example.com',
+   password: 'password',
+   role:     'admin'
+ )
+
+ # Create a member
+ employee = User.create!(
+   name:     'Employee User',
+   email:    'employee@example.com',
+   password: 'password'
+ )
+
+ user = User.first
+  user.update_attributes!(
+    email: 'krobnson@gmail.com', # replace this with your personal email
+    password: 'helloworld'
+  )
+
  puts "Seed finished"
- # puts "#{Post.count} posts created"
- # puts "#{Comment.count} comments created"
+ #puts "#{Post.count} posts created"
+ #puts "#{Comment.count} comments created"
  puts "#{User.count} user created"

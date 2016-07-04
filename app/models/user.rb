@@ -2,10 +2,16 @@ class User < ActiveRecord::Base
   #Include default devise modules. Others available are:
   #:confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :trackable, :validatable, :confirmable, stretches: 20
-  has_many :calendars
-  has_many :events 
-  enum role: [:admin, :manager, :employee]
+  :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
+
+  has_many :events
+  has_many :posts
+  before_save {self.email = email.downcase }
+  before_save { self.role ||= :employee }
+
+
+  enum role: [ :employee, :admin ]
 
   after_create :initialize_user
 
@@ -45,4 +51,5 @@ end
     self.update_attributes(role: "employee")
     self.make_calendars_public
   end
+
 end
