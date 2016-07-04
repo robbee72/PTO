@@ -2,13 +2,15 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :require_sign_in, except: :show
+include SessionsHelper
+
   def index
     @posts = Post.all
-    # if user_signed_in?
-    #   redirect_to posts_path
-    # else
-    #   redirect_to new_user_session_path
-    # end
+    if user_signed_in?
+      redirect_to posts_path
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   # GET /posts/1
@@ -77,7 +79,7 @@ end
 
    def authorize_user
      post = Post.find(params[:id])
- # #11
+
      unless current_user == post.user || current_user.admin?
        flash[:alert] = "You must be an admin to do that."
        redirect_to [post.event, post]

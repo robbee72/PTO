@@ -13,7 +13,7 @@ require 'random_data'
  employee = User.create!(
    name:     'Employee User',
    email:    'employee@example.com',
-   password: 'password'
+   password: 'password',
    role:     'employee'
  )
 
