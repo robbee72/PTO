@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
-     @user = User.new
+     @user = User.find(session[:user_id]).name
      @user.name = params[:user][:name]
      @user.user_number = params[:user][:user_number]
      @user.email = params[:user][:email]
@@ -31,5 +31,10 @@ class UsersController < ApplicationController
 
    def show
      @user = User.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @user }
+    end
    end
 end

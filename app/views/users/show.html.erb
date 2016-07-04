@@ -1,8 +1,17 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container user">
+2	 <div class="user-text">
+3	 <% if current_user == @user %>
+4	   <h1>My PTO</h1>
+5	 <% else %>
+6	   <h1> <%= @user.name %> </h1>
+7	 <% end %>
+8	 </div>
+9	 <div class="PTO-box">
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
+
 </p>
 
 <p>

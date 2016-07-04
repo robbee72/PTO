@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :posts
-  devise_for :users #, controllers: { :registrations => "registrations" }
+  devise_for :users
   resources :users
   resources :calendars
   resources :events

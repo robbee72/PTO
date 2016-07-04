@@ -1,34 +1,25 @@
 require 'random_data'
 
-# 5.times do
-# # #1
-#   Users.create!(
-# # #2
-#     name:  RandomData.random_sentence,
-#     email:   RandomData.random_paragraph
-#   )
-# end
-# users = User.all
+# Create an admin user
+ admin = User.create!(
+   name:     'Admin User',
+   email:    'admin@example.com',
+   password: 'password',
+   role:     'admin'
+ )
 
- #  5.times do
- # # #1
- #    Post.create!(
- #  # #2
- #      user: users.sample,
- #     title:  RandomData.random_sentence,
- #      body:   RandomData.random_paragraph
- #    )
- #  end
- #  posts = Post.all
- #
- #  10.times do
- #    Comment.create!(
- #  # #4
- #      post: posts.sample,
- #      body: RandomData.random_paragraph
- #    )
- #  end
+ # Create a member
+ employee = User.create!(
+   name:     'Employee User',
+   email:    'employee@example.com',
+   password: 'password'
+ )
 
+ user = User.first
+  user.update_attributes!(
+    email: 'krobnson@gmail.com', # replace this with your personal email
+    password: 'helloworld'
+  )
 
  puts "Seed finished"
  #puts "#{Post.count} posts created"

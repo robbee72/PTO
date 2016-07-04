@@ -27,3 +27,8 @@
 <br>
 
 <%= link_to 'New Post', new_post_path %>
+<% if current_user && current_user.admin? %>
+    <div class="col-md-4">
+      <%= link_to "New event", new_event_path, class: 'btn btn-success' %>
+    </div>
+  <% end %>

@@ -1,9 +1,20 @@
-h1 {
-   color: blue;
- }
 
- #index-title {
-   text-align: center;
-   font-size: 15px;
-   color: green;
- }
+.jumbotron {
+
+    padding: 2.5em 3.6em;
+    h1 {
+       color: blue;
+     }
+
+     #index-title {
+       text-align: center;
+       font-size: 12px;
+       color: green;
+     }
+    p {
+        font-size: 1.2em;
+        .btn {
+            padding: 0.5em;
+        }
+    }
+  }

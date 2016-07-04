@@ -31,6 +31,9 @@ class CalendarsController < ApplicationController
     @countdays = Event.where(:name => "Requested for PTO").count
     @hours = @countdays * 8
 
+    @approveddays = Event.where(:name => "PTO approved").count
+    @approvedhours = @approveddays * 8
+
     if Time.now.month == 12
       date = Time.now.year.next.to_s + "01"
     else

@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-#  before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  # GET /posts
+  before_action :require_sign_in, except: :show
   def index
     @posts = Post.all
     # if user_signed_in?
@@ -36,21 +36,26 @@ class PostsController < ApplicationController
       format.html { render :new }
       format.json { render json: @post.errors, status: :unprocessable_entity }
     end
+    @event = Event.find(params[:event_id])
+     @post.user = current_user
+     @post = @event.posts.build(post_params)
   end
 end
 
 
   def update
-    respond_to do |format|
-    if @post.update(post_params)
-      format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-      format.json { render :show, status: :ok, location: @post }
-    else
-      format.html { render :edit }
-      format.json { render json: @post.errors, status: :unprocessable_entity }
-    end
-  end
-end
+    @post = Post.find(params[:id])
+    @post.assign_attributes(post_params)
+
+     if @post.save
+       flash[:notice] = "Post was updated successfully."
+       redirect_to [@post.topic, @post]
+     else
+       flash.now[:alert] = "There was an error saving the post. Please try again."
+       render :edit
+     end
+   end
+
 
   # DELETE /posts/1
   def destroy
@@ -69,4 +74,13 @@ end
     def post_params
       params.require(:post).permit(:title, :content)
     end
+
+   def authorize_user
+     post = Post.find(params[:id])
+ # #11
+     unless current_user == post.user || current_user.admin?
+       flash[:alert] = "You must be an admin to do that."
+       redirect_to [post.event, post]
+     end
+   end
   end

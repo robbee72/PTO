@@ -8,4 +8,12 @@ belongs_to :calendars
   def hours
     @hours = @countdays * 8
   end
+  def approveddays
+    @approveddays = Event.where(:name => "PTO approved").count
+  end
+
+  def approvedhours
+    @approvedhours = @approveddays * 8
+  end
+  
 end
