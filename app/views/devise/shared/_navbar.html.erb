@@ -9,7 +9,13 @@
         <li><%= link_to "About", about_path %></li>
         <li><%= link_to "Calendar", calendars_path %></li>
         <li><%= link_to "Posts", posts_path %></li>
+        <div class="pull-right user-info">
+                <% if user_signed_in? %>
+            <p> Hey There Beer Person, <%= current_user.name %> - <%= link_to "Sign_out", destroy_user_session_path, :method => 'delete'%></p>
 
+            <br>
+            <% end %>
+            </div>
 
       </ul>
 
@@ -20,7 +26,4 @@
       </div>
   </div>
 </ul>
-<% if user_signed_in? %>
-<ul>Signed in as: <%= current_user.name %></ul>
-<% end %>
 </nav>

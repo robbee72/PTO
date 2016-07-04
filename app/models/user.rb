@@ -11,22 +11,22 @@ class User < ActiveRecord::Base
   before_save { self.role ||= :employee }
 
 
-  enum role: [ :employee, :admin ]
+  enum role: [ :employee, :manager, :admin ]
 
   after_create :initialize_user
 
-  def admin?
-    role == 'admin'
-  end
-
-  def manager?
-    role == 'manager'
-  end
-
-  def employee?
-    role == 'employee'
-  end
-
+#   def admin?
+#     role == 'admin'
+#   end
+#
+#   def manager?
+#     role == 'manager'
+#   end
+#
+#   def employee?
+#     role == 'employee'
+#   end
+#
   def initialize_user
     self.update_attributes(role: 'employee')
   end
@@ -34,22 +34,22 @@ class User < ActiveRecord::Base
   def upgrade_account
     self.update_attributes(role: 'manager')
   end
-
-  def privatize_calendar?(calendar)
-    (self.manager && calendar.is_owned_by?(self)) || self.admin?
-  end
-
-
-  def public
-    calendars.each do |calendar|
-    calendar.update_attributes(private: true)
-  end
-end
-
-
-  def downgrade_account
-    self.update_attributes(role: "employee")
-    self.make_calendars_public
-  end
+#
+#   def privatize_calendar?(calendar)
+#     (self.manager && calendar.is_owned_by?(self)) || self.admin?
+#   end
+#
+#
+#   def public
+#     calendars.each do |calendar|
+#     calendar.update_attributes(private: true)
+#   end
+# end
+#
+#
+#   def downgrade_account
+#     self.update_attributes(role: "employee")
+#     self.make_calendars_public
+#   end
 
 end

@@ -14,6 +14,7 @@ require 'random_data'
    name:     'Employee User',
    email:    'employee@example.com',
    password: 'password'
+   role:     'employee'
  )
 
  user = User.first
