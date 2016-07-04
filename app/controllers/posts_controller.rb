@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
+ before_action :authenticate_user!
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :require_sign_in, except: :show
 include SessionsHelper
@@ -22,7 +22,6 @@ include SessionsHelper
   def new
     @post = Post.new
   end
-
   # GET /posts/1/edit
   def edit
   end
@@ -77,12 +76,12 @@ end
       params.require(:post).permit(:title, :content)
     end
 
-   def authorize_user
-     post = Post.find(params[:id])
-
-     unless current_user == post.user || current_user.admin?
-       flash[:alert] = "You must be an admin to do that."
-       redirect_to [post.event, post]
-     end
-   end
+  #  def authorize_user
+  #    post = Post.find(params[:id])
+   #
+  #    unless current_user == post.user || current_user.admin?
+  #      flash[:alert] = "You must be an admin to do that."
+  #      redirect_to [post.event, post]
+  #    end
+   #end
   end
