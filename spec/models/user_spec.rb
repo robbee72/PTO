@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe "attributes" do
-       ...
+      
    # #1
        it "responds to role" do
          expect(user).to respond_to(:role)

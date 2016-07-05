@@ -4,11 +4,11 @@ class PostsController < ApplicationController
   before_action :require_sign_in, except: :show
   def index
     @posts = Post.all
-    # if user_signed_in?
-    #   redirect_to posts_path
-    # else
-    #   redirect_to new_user_session_path
-    # end
+    if user_signed_in?
+      redirect_to posts_path
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   # GET /posts/1

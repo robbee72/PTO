@@ -8,9 +8,10 @@
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "About", about_path %></li>
         <li><%= link_to "Calendar", calendars_path %></li>
-        <li><%= link_to "Posts", posts_path %></li>
 
-
+        <% if user_signed_in? %>
+        <ul>Signed in as: <%= current_user.name %></ul>
+        <% end %>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -22,7 +23,4 @@
 </ul>
 <p> Welcome - <%= link_to "Sign_out", destroy_user_session_path, :method => 'delete'%></p>
 
-<% if user_signed_in? %>
-<ul>Signed in as: <%= current_user.name %></ul>
-<% end %>
 </nav>
