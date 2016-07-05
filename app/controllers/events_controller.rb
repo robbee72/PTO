@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   #before_action :require_sign_in, except: [:index, :show]
-  before_action :authorize_user, except: [:index, :show]
+  #before_action :authorize_user, except: [:index, :show]
   def new
     @event = Event.new
   end
@@ -40,10 +40,10 @@ class EventsController < ApplicationController
     params.require(:event).permit(:name, :occurs_on, :description, :public)
   end
 
-  def authorize_user
-    unless current_user.employee?
-      flash[:alert] = "You must be an admin to do that."
-      redirect_to events_path
-    end
-  end
+  # def authorize_user
+  #   unless current_user.admin?
+  #     flash[:alert] = "You must be an admin to do that."
+  #     redirect_to events_path
+  #   end
+  # end
 end

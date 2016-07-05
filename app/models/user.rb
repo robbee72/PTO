@@ -7,10 +7,10 @@ class User < ActiveRecord::Base
 
   has_many :events
   has_many :posts
-  before_save {self.email = email.downcase }
-  before_save { self.role ||= :employee }
-
-
-  enum role: [ :employee, :admin ]
+  # before_save {self.email = email.downcase }
+  # before_save { self.role ||= :employee }
+  #
+  #
+  # enum role: [ :employee, :admin ]
 
 end
