@@ -8,11 +8,13 @@
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "About", about_path %></li>
         <li><%= link_to "Calendar", calendars_path %></li>
-        <li><%= link_to "Posts", posts_path %></li>
-        <div class="pull-right user-info">
-
-
+<p> Welcome - <%= link_to "Sign_out", destroy_user_session_path, :method => 'delete'%></p>
      </div>
+
+
+        <% if user_signed_in? %>
+        <ul>Signed in as: <%= current_user.name %></ul>
+        <% end %>
 
       </ul>
     <div>
@@ -25,9 +27,5 @@
       </div>
   </div>
 </ul>
-<p> Welcome, <%= current_user.email %> - <%= link_to "Sign_out", destroy_user_session_path, :method => 'delete'%></p>
 
-  <% if user_signed_in? %>
-     <ul>Signed in as: <%= current_user.email %></ul>
-   <% end %>
 </nav>

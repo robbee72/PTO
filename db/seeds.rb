@@ -10,11 +10,11 @@ require 'random_data'
  )
 
  # Create a member
- employee = User.create!(
-   name:     'Employee User',
-   email:    'employee@example.com',
+ member = User.create!(
+   name:     'Member User',
+   email:    'member@example.com',
    password: 'password',
-   role:     'employee'
+   role:     'member'
  )
 
  user = User.first

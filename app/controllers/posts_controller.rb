@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
- before_action :authenticate_user!
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :require_sign_in, except: :show
+ # before_action :authenticate_user!
+ #  before_action :set_post, only: [:show, :edit, :update, :destroy]
+ #  before_action :require_sign_in, except: :show
 include SessionsHelper
 
   def index

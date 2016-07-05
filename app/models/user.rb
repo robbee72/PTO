@@ -7,10 +7,9 @@ class User < ActiveRecord::Base
   has_many :events
   has_many :posts
   before_save {self.email = email.downcase }
-  before_save { self.role ||= :employee }
+  before_save { self.role ||= :member }
 
 
-  enum role: [ :employee, :manager, :admin ]
 
 #   after_create :initialize_user
 #
@@ -50,5 +49,9 @@ class User < ActiveRecord::Base
 #     self.update_attributes(role: "employee")
 #     self.make_calendars_public
 #   end
+
+
+  enum role: [ :member, :admin ]
+
 
 end
