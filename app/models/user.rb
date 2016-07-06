@@ -3,34 +3,31 @@ class User < ActiveRecord::Base
   #:confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
-
   has_many :events
   has_many :posts
   before_save {self.email = email.downcase }
   before_save { self.role ||= :member }
 
 
-
+#
 #   after_create :initialize_user
+#
 #
 #   def admin?
 #     role == 'admin'
 #   end
 #
-#   def manager?
-#     role == 'manager'
+#   def member?
+#     role == 'member'
 #   end
 #
-#   def employee?
-#     role == 'employee'
-#   end
 # #
 #   def initialize_user
-#     self.update_attributes(role: 'employee')
+#     self.update_attributes(role: 'member')
 #   end
 #
 #   def upgrade_account
-#     self.update_attributes(role: 'manager')
+#     self.update_attributes(role: 'admin')
 #   end
 #
 #   def privatize_calendar?(calendar)
@@ -46,7 +43,7 @@ class User < ActiveRecord::Base
 #
 #
 #   def downgrade_account
-#     self.update_attributes(role: "employee")
+#     self.update_attributes(role: "member")
 #     self.make_calendars_public
 #   end
 
