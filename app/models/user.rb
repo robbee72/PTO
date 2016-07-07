@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   before_save {self.email = email.downcase }
   before_save { self.role ||= :member }
 
-
+  enum role: [ :member, :admin ]
 #
 #   after_create :initialize_user
 #
@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
 #   end
 #
 #   def privatize_calendar?(calendar)
-#     (self.manager && calendar.is_owned_by?(self)) || self.admin?
+#     (self.admin && calendar.is_owned_by?(self)) || self.admin?
 #   end
 #
 #
@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
 #   end
 
 
-  enum role: [ :member, :admin ]
+
 
 
 end

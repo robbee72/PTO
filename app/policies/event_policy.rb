@@ -24,7 +24,7 @@ class EventPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.admin? or user.manager?
+    user.admin? or user.member?
   end
 
     class Scope
@@ -39,7 +39,7 @@ class EventPolicy < ApplicationPolicy
       events = []
       if user && user.role == 'admin'
         events = scope.all # if the user is an admin, show them all the events
-      elsif  user && user.role == 'manager'
+      elsif  user && user.role == 'member'
         all_events = scope.all
         all_events.each do |event|
           if event.public? || event.user == user  || event.calendar_users.include?(user)

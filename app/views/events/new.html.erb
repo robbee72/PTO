@@ -2,6 +2,5 @@
   <%= form_for @event do |f| %>
   <%= f.select :name, [['Scheduled day off','Scheduled day off'],['Requested for PTO', 'Requested for PTO'],['PTO has NOT been approved', 'PTO has NOT been approved'],['PTO approved', 'PTO approved']] %>
    <%= f.hidden_field :occurs_on, value: params[:date] %><br />
-
     <%= f.submit %>
-  <%- end %>
+  <%- end %><br>
