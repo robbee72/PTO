@@ -48,6 +48,10 @@ class UsersController < ApplicationController
    def edit
    end
 
+   def destroy
+     @user = User.all
+   end
+
    def show
      @user = User.find(params[:id])
 

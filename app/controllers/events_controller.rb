@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   # before_action :authorize_user, except: [:index, :show]
   def index
     @events = Event.all
+    authorize @events
   end
 
   def new
@@ -59,11 +60,5 @@ class EventsController < ApplicationController
   end
 
 
- #  def authorize_user
- #    unless current_user.admin?
- #      flash[:alert] = "You must be an admin to do that."
- #      redirect_to events_path
- #    end
- # end
 
 end

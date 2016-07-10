@@ -3,21 +3,23 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
 
   before_filter :authenticate_user!
-  protect_from_forgery with: :exception
+  before_filter :configure_permitted_parameters, if: :devise_controller?
+
+  include Pundit
+  protect_from_forgery # with: :exception
+
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   protected
 
   def configure_permitted_parameters
-    # devise_parameter_sanitizer.permit(:sign_up) do |user_params|
-    #   user_params.permit(:name, :employee_number, :role, :email, :password, :password_confirmation)
-    # end
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :employee_number, :email, :password, :password_confirmation) }
+    devise_parameter_sanitizer.for(:sign_up) << :name
+    devise_parameter_sanitizer.for(:sign_up) << :employee_number
   end
 
-  # def require_sign_in
-  #   unless current_user
-  #     flash[:alert] = "You must be logged in to do that"
-  #     redirect_to new_user_session_path
-  #   end
-  # end
+
+  def user_not_authorized
+    flash[:alert] = "You are not authorized to perform this action."
+    redirect_to(request.referrer || root_path)
+  end
 end
