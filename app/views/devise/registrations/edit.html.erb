@@ -37,8 +37,8 @@
 <% if current_user.admin? %>
 
   <h3>Downgrade Account</h3>
-  <%= link_to "Downgrade", devise_registrations_path(current_user), method: :delete, class: 'btn btn-default' %>
-  <%= redirect_to :action => 'index' %>
+  <%= link_to "Downgrade", users_path(current_user), method: :delete, class: 'btn btn-default' %>
+  
 <% else %>
 
   <h3>Upgrade Account</h3>

@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   devise_for :users
-
   resources :posts
 
   resources :calendars
@@ -9,6 +8,6 @@ Rails.application.routes.draw do
 
   get 'about' => 'home#about'
   root :to =>'home#index'
-  resources :users, only: [:new, :create, :destroy]
 
+  resources :users
 end
