@@ -11,6 +11,11 @@ class User < ActiveRecord::Base
   enum role: [ :member, :admin, :premium ]
 
   after_create :initialize_user
+  validates :name, length: { minimum: 1, maximum: 100 }, presence: true
+  validates :email,
+             presence: true,
+             uniqueness: { case_sensitive: false },
+             length: { minimum: 3, maximum: 254 }
 
 
   def admin?

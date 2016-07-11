@@ -34,15 +34,15 @@
   </div>
 <% end %>
 
-<% if current_user.admin? %>
+<% if current_user.premium? %>
 
   <h3>Downgrade Account</h3>
-  <%= link_to "Downgrade", users_path(current_user), method: :delete, class: 'btn btn-default' %>
-  
+  <%= link_to "Downgrade",  method: :delete, class: 'btn btn-default' %>
+
 <% else %>
 
   <h3>Upgrade Account</h3>
-  <%= link_to "Upgrade", root_path, class: 'btn btn-default' %>
+  <%= link_to "Upgrade", class: 'btn btn-default' %>
 
 <% end %>
 

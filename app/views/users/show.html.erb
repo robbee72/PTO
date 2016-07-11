@@ -13,7 +13,7 @@
      <% if current_user == @user %>
        <%= link_to "New Event", new_users_path(@user, @event), class: 'btn btn-success' %>
      <% end %>
-     <% if current_user && current_user.role == 'admin' %>
+     <% if current_user && current_user.role == 'member' %>
        <%= link_to "Upgrade to Admin", new_users_path, class: 'btn btn-success' %>
      <% end %>
    </div>
