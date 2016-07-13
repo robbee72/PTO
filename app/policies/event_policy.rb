@@ -12,7 +12,7 @@ class EventPolicy < ApplicationPolicy
    end
 
    def resolve
-     wikis = []
+     events = []
      if user && user.role == 'admin'
        events = scope.all
      elsif user && user.role == 'admin'

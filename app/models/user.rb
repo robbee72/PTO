@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
 
   after_create :initialize_user
 
+  def self.all_except(user)
+  where.not(id: user)
+  end
 
   def admin?
     role == 'admin'

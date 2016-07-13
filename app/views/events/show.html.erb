@@ -1,12 +1,12 @@
 <h1><%= @event.name %></h1>
 <div>
-<% if user_is_authorized_for_events? %>
-  <%= link_to "Edit event", edit_event_path, class: 'btn btn-success' %>
+    <% if user_is_authorized_for_events? %>
+      <%= link_to "Edit event", edit_event_path, class: 'btn btn-success' %>
+    <% end %>
 
-<% end %>
-<% if current_user %>
-     <div class="col-md-4">
-       <%= link_to "New Event", new_event_path(@event), class: 'btn btn-success' %>
-     </div>
-   <% end %>
+    <% if current_user %>
+      <div class="col-md-4">
+        <%= link_to "New Event", new_event_path(@event), class: 'btn btn-success' %>
+      </div>
+     <% end %>
  </div>

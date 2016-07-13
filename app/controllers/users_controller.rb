@@ -42,7 +42,20 @@ class UsersController < ApplicationController
 
 
    def index
-     @user = User.all
+     @users = User.all
+     @users = User.all_except(current_user)
+     authorize @users
+   end
+
+   def update
+     user = User.find(params[:id])
+     user.role = params[:user][:role]
+     if user.save!
+       flash[:notice] = "#{user.name} updated successfully."
+     else
+       flash[:alert] = "#{user.name} failed to update."
+     end
+     redirect_to users_path
    end
 
    def edit
