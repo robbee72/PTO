@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-  
+
   end
 
   def about
@@ -8,5 +8,6 @@ class HomeController < ApplicationController
 
 
   def show
+    @user = User.first
   end
 end

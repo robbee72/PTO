@@ -17,6 +17,9 @@ class User < ActiveRecord::Base
              uniqueness: { case_sensitive: false },
              length: { minimum: 3, maximum: 254 }
 
+  def self.all_except(user)
+  where.not(id: user)
+  end
 
   def admin?
     role == 'admin'

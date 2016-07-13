@@ -11,6 +11,7 @@
           <li><a href="#">Welcome <%= current_user.name %> </a></li>
           <li><a href="#">Role: <%= current_user.role %></a></li>
           <li><a href="#"><%= link_to('Edit registration', edit_user_registration_path) %></a></li>
+          <li><a href="#"><%= link_to('Upgrade', users_path) %></li>
         <% else %>
           <li><a href="#"><%= link_to('Register', new_user_registration_path)  %></a></li>
         <% end %>

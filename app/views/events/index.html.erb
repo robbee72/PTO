@@ -1,3 +1,7 @@
+<div class="col-md-4">
+  <%= link_to "New Event", new_event_path, class: 'btn btn-default btn-sm' %>
+  <%= link_to "Calendar", calendars_path, class: 'btn btn-default btn-sm' %>
+</div>
 <h1>All Events</h1>
 <div class="table-responsive">
   <table class="table">
@@ -12,13 +16,14 @@
     <tbody>
       <tr>
         <% @events.each do |event| %>
+  
           <table class="table"></td>
             <td><%= link_to event.id, event %></td>
             <td><%= link_to  event.occurs_on, event %></td>
             <td><%= link_to  event.name, event %></td>
             <td><%= link_to "Delete event", event_path(event), method: :delete, class: 'btn btn-secondary', data: { confirm: 'Are you sure you want to delete this event?' } %></td>
           </table>
-        </div>
+
         <% end %>
       </tr>
     </tbody>
@@ -26,7 +31,3 @@
 </div>
   </body>
 </html>
-  <div class="col-md-4">
-    <%= link_to "New Event", new_event_path, class: 'btn btn-success' %>
-    <%= link_to "Back to Calendar", calendars_path, class: 'btn btn-success' %>
-  </div>
