@@ -21,11 +21,7 @@ RSpec.describe UsersController, type: :controller do
          expect(assigns(:user)).to_not be_nil
        end
      end
-     describe "POST create" do
-     it "returns an http redirect" do
-       post :create, user: new_user_attributes
-       expect(response).to have_http_status(:redirect)
-     end
+
 
  # #4
      it "creates a new user" do
@@ -61,5 +57,5 @@ RSpec.describe UsersController, type: :controller do
       post :create, user: new_user_attributes
       expect(session[:user_id]).to eq assigns(:user).id
     end
-   end
+  
 end
