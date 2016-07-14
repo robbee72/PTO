@@ -3,11 +3,15 @@ class EventPolicy < ApplicationPolicy
    record.public? || user.present?
  end
 
+ def edit
+   user.present? && user.admin?
+ end
+
  class Scope
    attr_reader :user, :scope
 
    def initialize(user, scope)
-     @user = user
+     @user = user.admin
      @scope = scope
    end
 
@@ -15,7 +19,7 @@ class EventPolicy < ApplicationPolicy
      events = []
      if user && user.role == 'admin'
        events = scope.all
-     elsif user && user.role == 'admin'
+     elsif user && user.role == 'member'
        all_events = scope.all
        all_events.each do |event|
          if event.public? || event.user == user

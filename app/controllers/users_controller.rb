@@ -66,7 +66,7 @@ class UsersController < ApplicationController
    end
 
    def show
-     @user = User.find(params[:id])
+     @user = User.all
 
     respond_to do |format|
       format.html # show.html.erb

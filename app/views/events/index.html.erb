@@ -3,31 +3,29 @@
   <%= link_to "Calendar", calendars_path, class: 'btn btn-default btn-sm' %>
 </div>
 <h1>All Events</h1>
-<div class="table-responsive">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>#ID</th>
-        <th>Date</th>
-        <th>Event Name</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <% @events.each do |event| %>
-  
-          <table class="table"></td>
-            <td><%= link_to event.id, event %></td>
-            <td><%= link_to  event.occurs_on, event %></td>
-            <td><%= link_to  event.name, event %></td>
-            <td><%= link_to "Delete event", event_path(event), method: :delete, class: 'btn btn-secondary', data: { confirm: 'Are you sure you want to delete this event?' } %></td>
-          </table>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#ID</th>
+          <th>Date</th>
+          <th>Event Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% @events.each do |event| %>
 
-        <% end %>
-      </tr>
-    </tbody>
-  </table>
-</div>
-  </body>
-</html>
+            <table class="table"></td>
+              <td><%=  event.id %></td>
+              <td><%=  event.occurs_on %></td>
+              <td><%=  event.name %></td>
+              <td><%= link_to "Delete event", event_path(event), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this event?' } %></td>
+            </table>
+
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>

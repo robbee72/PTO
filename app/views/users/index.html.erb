@@ -13,28 +13,30 @@
   <tbody>
 
     <% @users.each do |user| %>
-      <%= form_for user do |f| %>
-        <tr>
-          <td><%= user.name %></td>
-          <td><%= user.role %></td>
-          <td>
-            <label class="c-input c-radio">
+      <table class="table"></td>
+        <%= form_for user do |f| %>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.role %></td>
+            <td>
+              <label class="c-input c-radio">
 
-              <%= f.radio_button :role, 'admin', checked: user.admin? %>
-              <span class="c-indicator"></span>
-              Admin
-            </label>
-            <label class="c-input c-radio">
-              <%= f.radio_button :role, 'member', checked: user.member? %>
-              <span class="c-indicator"></span>
-              Member
-            </label>
-          </td>
-          <td>
-            <%= f.submit "Update" %>
-          </td>
-        </tr>
+                <%= f.radio_button :role, 'admin', checked: user.admin? %>
+                <span class="c-indicator"></span>
+                Admin
+              </label>
+              <label class="c-input c-radio">
+                <%= f.radio_button :role, 'member', checked: user.member? %>
+                <span class="c-indicator"></span>
+                Member
+              </label>
+            </td>
+            <td>
+              <%= f.submit "Update" %>
+            </td>
+          </tr>
       <% end %>
+      </table>
     <% end %>
   </tbody>
 </table>
