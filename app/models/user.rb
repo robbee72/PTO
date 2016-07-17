@@ -3,8 +3,9 @@ class User < ActiveRecord::Base
   #:confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
-  has_many :events
-  #has_many :posts
+  #has_many :events
+  has_many :calendars
+
   before_save {self.email = email.downcase }
   before_save { self.role ||= :member }
 

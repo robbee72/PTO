@@ -3,29 +3,33 @@
   <%= link_to "Calendar", calendars_path, class: 'btn btn-default btn-sm' %>
 </div>
 <h1>All Events</h1>
-  <div class="table-responsive">
-    <table class="table">
-      <thead>
+<style>
+table, th, td {
+    border: 1px solid black;
+    padding: 5px;
+}
+table {
+    border-spacing: 15px;
+}
+</style>
+<body>
+<table style="width:100%">
+      <th colspan="5"></th>
         <tr>
           <th>#ID</th>
           <th>Date</th>
           <th>Event Name</th>
           <th>Action</th>
         </tr>
-      </thead>
       <tbody>
-        <tr>
           <% @events.each do |event| %>
-
-            <table class="table"></td>
+          <tr>
               <td><%=  event.id %></td>
               <td><%=  event.occurs_on %></td>
               <td><%=  event.name %></td>
               <td><%= link_to "Delete event", event_path(event), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this event?' } %></td>
-            </table>
-
+          </tr>
           <% end %>
-        </tr>
       </tbody>
     </table>
-  </div>
+  </body>
