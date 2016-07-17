@@ -4,50 +4,50 @@
 <h1>Listing Users</h1>
 <p>Current Administrator: <%= current_user.name %></p>
 <head>
-<style>
-table, th, td {
-    border: 1px solid black;
-    padding: 5px;
-}
-table {
-    border-spacing: 15px;
-}
-</style>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      padding: 5px;
+    }
+    table {
+      border-spacing: 15px;
+    }
+  </style>
 </head>
-<body>
-<table style="width:100%">
-      <th colspan="5"></th>
-    <tr>
-      <th>Name</th>
-      <th>Role</th>
-      <th></th>
-      <th></th>
-    </tr>
-  <tbody>
-    <% @users.each do |user| %>
-    <%= form_for user do |f| %>
 
-          <tr>
-            <td><%= user.name %></td>
-            <td><%= user.role %></td>
-            <td>
-              <label class="c-input c-radio">
-                <%= f.radio_button :role, 'admin', checked: user.admin? %>
-                <span class="c-indicator"></span>
-                Admin
-              </label>
-              <label class="c-input c-radio">
-                <%= f.radio_button :role, 'member', checked: user.member? %>
-                <span class="c-indicator"></span>
-                Member
-              </label>
-            </td>
-            <td>
-              <%= f.submit "Update" %>
-            </td>
-          </tr>
-    <% end %>
-    <% end %>
-  </tbody>
-</table>
+<body>
+  <table style="width:100%">
+    <th colspan="5"></th>
+      <tr>
+        <th>Name</th>
+        <th>Role</th>
+        <th></th>
+        <th></th>
+      </tr>
+    <tbody>
+      <% @users.each do |user| %>
+        <%= form_for user do |f| %>
+            <tr>
+              <td><%= user.name %></td>
+              <td><%= user.role %></td>
+              <td>
+                <label class="c-input c-radio">
+                  <%= f.radio_button :role, 'admin', checked: user.admin? %>
+                  <span class="c-indicator"></span>
+                  Admin
+                </label>
+                <label class="c-input c-radio">
+                  <%= f.radio_button :role, 'member', checked: user.member? %>
+                  <span class="c-indicator"></span>
+                  Member
+                </label>
+              </td>
+              <td>
+                <%= f.submit "Update" %>
+              </td>
+            </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
 </body>

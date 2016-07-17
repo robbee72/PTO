@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   # before_action :authorize_user, except: [:index, :show]
   def index
     @events = Event.all
-    authorize @events
+
   end
 
   def new
@@ -44,13 +44,13 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
 
-    if @event.destroy
-      flash[:notice] = "\"#{@event}\" was deleted successfully."
-      redirect_to events_path
-    else
-      flash.now[:alert] = "There was an error deleting the event."
-      render :show
-    end
+     if @event.delete
+     flash[:notice] = "\"#{@event}\" was deleted successfully."
+     redirect_to events_path
+     else
+       flash.now[:alert] = "There was an error deleting the event."
+       render :show
+     end
   end
 
 
