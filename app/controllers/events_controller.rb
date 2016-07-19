@@ -3,18 +3,22 @@ class EventsController < ApplicationController
   # before_action :require_sign_in, except: [:index, :show]
   # before_action :authorize_user, except: [:index, :show]
   def index
-    @events = Event.all
+    @user = User.find(params[:user_id])
+    @events = @user.events
 
   end
 
   def new
-    @event = Event.new
+    @user = User.find(params[:user_id])
+    @event = @user.events.new
+    @select_options = [['Scheduled day off','Scheduled day off'],['Requested for PTO', 'Requested for PTO'],['PTO has NOT been approved', 'PTO has NOT been approved'],['PTO approved', 'PTO approved']]
   end
 
   def create
-      @event = Event.new(event_params)
+      @user = User.find(params[:user_id])
+      @event = @user.events.build(event_params)
       if @event.save
-        redirect_to '/calendars'
+        redirect_to user_calendars_path(@user)
       else
         render :new
       end
@@ -43,7 +47,7 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
 
-     if @event.delete
+     if @event.destroy
      flash[:notice] = "\"#{@event}\" was deleted successfully."
      redirect_to events_path
      else

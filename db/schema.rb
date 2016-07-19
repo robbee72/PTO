@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160705181144) do
+ActiveRecord::Schema.define(version: 20160719014251) do
 
   create_table "calendars", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160705181144) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date     "occurs_on"
+    t.integer  "user_id"
   end
 
   create_table "mailer_users", force: :cascade do |t|

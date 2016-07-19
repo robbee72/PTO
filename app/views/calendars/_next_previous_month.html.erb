@@ -1,7 +1,7 @@
 
 <div class="button-bar">
-  <a href="/calendars/<%= @calendar_past %>" class="btn btn-default">Previous Month</a>
-  <a href="/calendars/<%= @today %>" class="btn btn-default">Today</a>
-  <a href="/calendars/<%= @calendar_next %>" class="btn btn-default">Next Month</a>
+  <a href="/users/<%= params[:user_id] %>/calendars/<%= @calendar_past %>" class="btn btn-default">Previous Month</a>
+  <a href="/users/<%= params[:user_id] %>/calendars/<%= @today %>" class="btn btn-default">Today</a>
+  <a href="/users/<%= params[:user_id] %>/calendars/<%= @calendar_next %>" class="btn btn-default">Next Month</a>
 
 </div>

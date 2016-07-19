@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get 'about' => 'home#about'
   root :to =>'home#index'
 
-  resources :users
+  resources :users do
+    resources :calendars
+    resources :events
+  end
 
 end

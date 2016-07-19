@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-   has_many :calendars, dependent: :destroy
+  #  has_many :calendars, dependent: :destroy
    belongs_to :user
 
   # before_create :update_created_by

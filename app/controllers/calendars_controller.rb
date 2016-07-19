@@ -1,14 +1,14 @@
 class CalendarsController < ApplicationController
-  # before_action :require_sign_in, except: [:index, :show]
-  # before_action :authorize_user, except: [:index, :show]
+   before_action :require_sign_in, except: [:index, :show]
+   before_action :authorize_user, except: [:index, :show]
 
   def new
 
   end
 
   def index
-
-    redirect_to calendar_path(Date.today.strftime('%m-%Y'))
+    user = User.find(params[:user_id])
+    redirect_to user_calendar_path(user, Date.today.strftime('%m-%Y'))
   end
 
   def create
@@ -24,11 +24,14 @@ class CalendarsController < ApplicationController
     @calendar_past = (@date - 1.month).strftime('%m-%Y') #Calendar.new(past_date).to_a
     @today = Date.today.strftime('%m-%Y')
 
+    @user = User.find(params[:user_id])
+
     first_day = @calendar.first.first.first
     last_day = @calendar.last.last.first
 
-    @events = Event.where('occurs_on >= ? AND occurs_on <= ?',  first_day, last_day)
-  
+    @events = Event.where('user_id = ? AND occurs_on >= ? AND occurs_on <= ?', @user.id, first_day, last_day)
+    authorize @events
+
     @grouped_events = @events.group_by{|e| e.occurs_on.strftime('%Y-%m-%d')}
     # raise @grouped_events.inspect
     @countdays = Event.where(:name => "Requested for PTO").count
