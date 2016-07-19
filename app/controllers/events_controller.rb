@@ -21,15 +21,14 @@ class EventsController < ApplicationController
   end
 
 
+
   def update
      @event = Event.find(params[:id])
-
-     if @event.save
-       flash[:notice] = "Event was updated successfully."
+     authorize @event
+     if @event.update (event_params)
        redirect_to @event
      else
-       flash.now[:alert] = "There was an error saving the event. Please try again."
-       render :edit
+        render :edit
      end
    end
 
@@ -58,7 +57,4 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:name, :occurs_on, :description, :public)
   end
-
-
-
 end

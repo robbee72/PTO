@@ -1,7 +1,11 @@
 class Calendar < ActiveRecord::Base
 has_many :events
+has _many :users
 belongs_to :user
-belongs_to :calendars
+
+#scope :available, ->{ where(available:true)}
+#scope :unavailable, ->{ where(available: [nil, false])}
+
     def countdays
       @countdays = Event.where(:name => "Requested for PTO").count
     end

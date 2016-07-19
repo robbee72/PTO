@@ -5,7 +5,7 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: stretch;
-    
+
   }
 
   .th {
@@ -45,5 +45,5 @@
   }
 
   /*Weekends*/
- .week>div:first-child, .week>div:last-child {background-color: #6DD5F7;}
+ .week>div:first-child, .week>div:last-child {background-color: #C1D3D9;}
   .th>span:last-child, .week>div:last-child {margin-right: 2px;}

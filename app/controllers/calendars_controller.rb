@@ -2,7 +2,6 @@ class CalendarsController < ApplicationController
   # before_action :require_sign_in, except: [:index, :show]
   # before_action :authorize_user, except: [:index, :show]
 
-
   def new
 
   end
@@ -28,7 +27,8 @@ class CalendarsController < ApplicationController
     first_day = @calendar.first.first.first
     last_day = @calendar.last.last.first
 
-    @events = Event.where('occurs_on >= ? AND occurs_on <= ?', first_day, last_day)
+    @events = Event.where('occurs_on >= ? AND occurs_on <= ?',  first_day, last_day)
+  
     @grouped_events = @events.group_by{|e| e.occurs_on.strftime('%Y-%m-%d')}
     # raise @grouped_events.inspect
     @countdays = Event.where(:name => "Requested for PTO").count
@@ -60,5 +60,4 @@ class CalendarsController < ApplicationController
     def calendar_params
       params.require(:calendar).permit(:name, :description, :public)
     end
-
 end

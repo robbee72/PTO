@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   #:confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
+
   has_many :events
   has_many :calendars
 
@@ -18,9 +19,11 @@ class User < ActiveRecord::Base
              uniqueness: { case_sensitive: false },
              length: { minimum: 3, maximum: 254 }
 
+  cattr_accessor :current_user
+
   def self.all_except(user)
   where.not(id: user)
-  end
+  end 
 
   def admin?
     role == 'admin'

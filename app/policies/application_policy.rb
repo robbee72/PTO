@@ -1,7 +1,8 @@
 class ApplicationPolicy
 
   def index?
-    true
+    return true if user.type == "def index?"
+  end
   end
 
   def show?

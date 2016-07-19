@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   protected
-  
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :name
     devise_parameter_sanitizer.for(:sign_up) << :employee_number
@@ -19,7 +19,14 @@ class ApplicationController < ActionController::Base
 
 
   def user_not_authorized
+    if current_user
+      redirect_to root_path
+    elsif admin?
+      redirect_to root_path
+    else
+
     flash[:alert] = "You are not authorized to perform this action."
     redirect_to(request.referrer || root_path)
+    end
   end
 end
