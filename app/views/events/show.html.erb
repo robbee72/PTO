@@ -1,6 +1,6 @@
 <h1><%= @event.name %></h1>
 <div>
-    <% if user_is_authorized_for_events? %>
+    <% if user_is_authorized_for_event? %>
       <%= link_to "Edit event", edit_event_path, class: 'btn btn-success' %>
     <% end %>
 

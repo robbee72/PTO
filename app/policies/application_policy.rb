@@ -1,16 +1,21 @@
 class ApplicationPolicy
+  attr_reader :user, :record
+
+  def initialize(user, record)
+    @user = user
+    @record = record
+  end
 
   def index?
-    return true if user.type == "def index?"
-  end
+    false
   end
 
-  def show?
-     user_exists?
-  end
+  # def show?
+  #   scope.where(:id => record.id).exists?
+  # end
 
   def create?
-    user_exists?
+    false
   end
 
   def new?
@@ -18,7 +23,7 @@ class ApplicationPolicy
   end
 
   def update?
-    user_exists?
+    false
   end
 
   def edit?
@@ -26,28 +31,23 @@ class ApplicationPolicy
   end
 
   def destroy?
-    record_owned_by_user? || user_is?('admin')
+    false
   end
 
-  def scope
-   record.class
-  end
-
-  def record_exists?
-    scope.where(:id => record.id).exists?
-  end
-
-  def record_owned_by_user?
-    return false if record.user.nil?
-    return false unless user_exists?
-    record.user == user
-  end
-
-  def user_exists?
-    user.present?
-  end
-
-  def user_is?(*roles)
-    user_exists? && roles.any? { |role| user.send(:"#{role}?") }
-  end
+  # def scope
+  #   Pundit.policy_scope!(user, record.class)
+  # end
+  #
+  # class Scope
+  #   attr_reader :user, :scope
+  #
+  #   def initialize(user, scope)
+  #     @user = user
+  #     @scope = scope
+  #   end
+  #
+  #   def resolve
+  #     scope
+  #   end
+  # end
 end

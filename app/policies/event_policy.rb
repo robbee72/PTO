@@ -1,6 +1,6 @@
 class EventPolicy < ApplicationPolicy
 
-  attr_reader :user, :post
+  attr_reader :user, :event
 
   def initialize(user, event)
     @user = user
@@ -8,13 +8,14 @@ class EventPolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin?
+    user.admin? or not post.published?
   end
 
-  def show
-   record.public? || user.present?
- end
+ #  def show?
+ #   record.public? || user.present?
+ # end
 
  def edit
    user.present? && user.admin?
  end
+end

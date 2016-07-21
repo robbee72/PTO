@@ -19,11 +19,16 @@ class User < ActiveRecord::Base
              uniqueness: { case_sensitive: false },
              length: { minimum: 3, maximum: 254 }
 
-  cattr_accessor :current_user
+  #cattr_accessor :current_user
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    rescue ActiveRecord::RecordNotFound
+  end
+    
 
   def self.all_except(user)
   where.not(id: user)
-  end 
+  end
 
   def admin?
     role == 'admin'

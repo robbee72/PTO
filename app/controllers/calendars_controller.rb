@@ -30,14 +30,14 @@ class CalendarsController < ApplicationController
     last_day = @calendar.last.last.first
 
     @events = Event.where('user_id = ? AND occurs_on >= ? AND occurs_on <= ?', @user.id, first_day, last_day)
-    authorize @events
+    #authorize @events
 
     @grouped_events = @events.group_by{|e| e.occurs_on.strftime('%Y-%m-%d')}
     # raise @grouped_events.inspect
-    @countdays = Event.where(:name => "Requested for PTO").count
+    @countdays = @user.events.where(:name => "Requested for PTO").count
     @hours = @countdays * 8
 
-    @approveddays = Event.where(:name => "PTO approved").count
+    @approveddays = @user.events.where(:name => "PTO approved").count
     @approvedhours = @approveddays * 8
 
     if Time.now.month == 12

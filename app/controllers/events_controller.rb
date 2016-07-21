@@ -9,9 +9,13 @@ class EventsController < ApplicationController
   end
 
   def new
-    @user = User.find(params[:user_id])
+    @user = User.find(current_user)
     @event = @user.events.new
-    @select_options = [['Scheduled day off','Scheduled day off'],['Requested for PTO', 'Requested for PTO'],['PTO has NOT been approved', 'PTO has NOT been approved'],['PTO approved', 'PTO approved']]
+    if current_user.admin?
+      @select_options = [['Scheduled day off','Scheduled day off'],['Requested for PTO', 'Requested for PTO'],['PTO has NOT been approved', 'PTO has NOT been approved'],['PTO approved', 'PTO approved']]
+    else #current_user.member?
+      @select_options = [['Scheduled day off','Scheduled day off'],['Requested for PTO', 'Requested for PTO']]
+    end
   end
 
   def create
@@ -30,7 +34,7 @@ class EventsController < ApplicationController
      @event = Event.find(params[:id])
      authorize @event
      if @event.update (event_params)
-       redirect_to @event
+       redirect_to user_event_path
      else
         render :edit
      end
@@ -45,11 +49,11 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    user = User.find(params[:user_id])
     @event = Event.find(params[:id])
-
      if @event.destroy
-     flash[:notice] = "\"#{@event}\" was deleted successfully."
-     redirect_to events_path
+       flash[:notice] = "\"#{@event}\" was deleted successfully."
+       redirect_to user_events_path(user.id)
      else
        flash.now[:alert] = "There was an error deleting the event."
        render :show

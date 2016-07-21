@@ -1,15 +1,16 @@
 <h5>
 
-Employee:<%= current_user.name %><br />
+  Employee:<%= current_user.name %><br />
 
-<br />
-
-You requested <%= @countdays %> days of PTO <br />
-Total number of <%= @hours %> hours
+  <br />
+  <% if user_signed_in? %>
+    Requested <%= @countdays %> days of PTO <br />
+    Total number of <%= @hours %> hours
 </h5>
 
 <h5>
-Supervisor has Approved:<br />
-Your request for <%= @approveddays %> days of PTO <br />
-Total number of hours  <%= @approvedhours %> hours
+    Supervisor has Approved:<br />
+    Request for <%= @approveddays %> days of PTO <br />
+    Total number of hours  <%= @approvedhours %> hours
+    <% end %>
 </h5>
